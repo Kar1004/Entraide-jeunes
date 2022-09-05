@@ -1,0 +1,31 @@
+{
+  "name": "entraide-jeunes",
+  "version": "1.0.0",
+  "description": "un site d'entraide entre jeune et de base de donné pour les associations",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "author": "Al",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-router": "^0.0.1",
+    "express-session": "^1.17.3",
+    "handlebars": "^4.7.7",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.4",
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "passport-session": "^1.0.2",
+    "path": "^0.12.7"
+  }
+}
