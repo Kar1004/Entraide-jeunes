@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require("body-parser")
 const exphbs= require('express-handlebars')
-const router = require('./router/router')
+const router = require('./router/router.js')
 const path = require('path')
 
 require("./auth/passport")

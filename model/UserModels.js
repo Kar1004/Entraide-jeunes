@@ -1,18 +1,50 @@
 const bcrypt = require('bcrypt')
+const {isEmail} = require('validator')
 const mongoose = require('mongoose')
 
 
 const UserSchema = mongoose.Schema({
+    name:{
+        type:String,
+        maxlenght:20,
+        minlenght:2,
+        unique:true,
+        trim:true,
+    },
     email:{
         type:String,
         require:true,
-        unique:true
+        unique:true,
+        trim:true
     },
     password:{
         type:String,
         require:true,
+        maxlenght:100
+    },
+    picture:{
+        type:String,
+
+    },
+    bio:{
+        type:String,
+        maxlenght:1200,
+    },
+
+    followers:{
+        type:[String]
+    },
+    following:{
+        type:[String]
+    },
+    like:{
+        type: [String]
+    }},
+    {
+        timeStamps:true,
     }
-})
+
+)
 // bcrypt password
 
 UserSchema.pre('save' , async function (next){
