@@ -25,7 +25,7 @@ exports.udapteUser= async (req,res)=>{
     return res.status(400).send('ID UKNOW' + err)
     }
     try{
-        await UserModel.findOneAndUpdate( {_id : req.params.id},{
+        await UserModel.findOneAndUpdate(  req.params.id,{
             $set : 
             { 
             name:req.body.name
@@ -40,7 +40,6 @@ exports.udapteUser= async (req,res)=>{
 }
 
 //Delete
-
 exports.DeleteUser = async (req,res)=>{
     if (!ObjectId.isValid(req.params.id)){
     return res.status(400).send('ID UKNOW' + err)
@@ -51,4 +50,70 @@ exports.DeleteUser = async (req,res)=>{
     }catch(err){
        return res.status(500).json({message:"err"})
     }
+}
+
+//patch
+
+exports.Follow = async (req,res)=>{
+  if (!ObjectId.isValid(req.params.id) || !ObjectId.isValid(req.body.id) ){
+  return res.status(400).send('ID UKNOW' + err)
+  }
+  try{
+    //s'ajouter à la liste de la personne qu'on veut suivre
+    UserModel.findOneAndUpdate(  req.params.id,{
+      $addToSet : 
+      { 
+      follow:req.body.idToFollow
+    }},
+      { new:true ,upsert:true },(err,docs) =>{
+      if(!err){
+      res.status(201).json(docs)
+      }else{
+            res.status(400).json(err)
+      }
+    })
+     // s'ajouter dans la liste de la personnes suivit
+     UserModel.findOneAndUpdate( req.body.idToFollow,{
+      $addToSet : 
+      { 
+        followers:req.params.id
+  }},
+  { new:true ,upsert:true },(err,docs) =>{
+            res.status(400).json(err)
+  }
+  )
+}catch(err){
+    return res.status(500).json({message:"err"})
+ }
+}
+
+  //unfollow une
+
+exports.Unfollow = async (req,res)=>{
+  if (!ObjectId.isValid(req.params.id)|| !ObjectId.isValid(req.body.id)){
+  return res.status(400).send('ID UKNOW' + err)
+  }
+ 
+  UserModel.findOneAndUpdate(  req.params.id,{
+    $pull : 
+    { 
+    follow:req.body.idToUnFollow
+}},
+{ new:true ,upsert:true },(err,docs) =>{
+  if(!err){
+    res.status(201).json(docs)
+    }else{
+          res.status(400).json(err)
+    }
+  })
+   // retirer dans la liste de la personnes suivit
+   UserModel.findOneAndUpdate( req.body.idToUnFollow,{
+    $pull : 
+    { 
+      Unfollow:req.params.id
+}},
+{ new:true ,upsert:true },(err,docs) =>{
+          res.status(400).json(err)
+}
+)
 }

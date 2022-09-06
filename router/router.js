@@ -2,7 +2,7 @@
 const express = require('express')
 const { Home} = require ('../controllers/Home.js')
 const {  Signup , Login } = require('../controllers/Register.js')
-const { AllUser, UserInfo, udapteUser, DeleteUser } = require('../controllers/UserController.js')
+const { AllUser, UserInfo, udapteUser, DeleteUser, Unfollow, Follow } = require('../controllers/UserController.js')
 const jwtn = require('jsonwebtoken')
 const passport = require("passport")
 const router = express.Router()
@@ -41,7 +41,8 @@ router.post('/login',(req,res,next)=>{
                 if (error) return next(error)
 
                 const body = {_id: User._id , email:User.email}
-              
+                const token = jwt.sign({User : body},'my deep mind')
+                res.json({token,body})
             })
         }catch(error){
             return next(error)
@@ -50,7 +51,9 @@ router.post('/login',(req,res,next)=>{
 })
 
 
+//logout
 
+router.get('/logout',Logout)
 
 
 //Général
@@ -70,6 +73,8 @@ router.delete('/:id',DeleteUser)
 
 //patch for followers
 
+router.patch('/follow/:id', Follow)
+router.patch('/unfollow/:id', Unfollow)
 
 
 module.exports = router;
