@@ -1,6 +1,5 @@
-
-
-
+const UserModel = require("../model/UserModels")
+const jwt = require('jsonwebtoken')
 
 exports.Signup=(_,res)=>{
     res.render("signup")
@@ -11,11 +10,6 @@ exports.Signup=(_,res)=>{
 
 exports.Login=(_,res)=>{
     res.render("Login")
-}
-
-//Logout
-exports.Logout=(_,res)=>{
-    
 }
 
 

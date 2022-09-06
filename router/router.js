@@ -1,11 +1,21 @@
 
 const express = require('express')
 const { Home} = require ('../controllers/Home.js')
-const {  Signup , Login } = require('../controllers/Register.js')
+const {  Signup , Login, Logout } = require('../controllers/Register.js')
 const { AllUser, UserInfo, udapteUser, DeleteUser, Unfollow, Follow } = require('../controllers/UserController.js')
-const jwtn = require('jsonwebtoken')
 const passport = require("passport")
 const router = express.Router()
+require('dotenv').config()
+
+
+const jwt = require('jsonwebtoken')
+const { signupErr, loginErrors } = require('../utils/error.utils.js')
+const maxAge =3*24*60*1000
+const createToken = (id) =>{
+    return jwt.sign({id},"deep",{
+        expiresIn:maxAge
+    })
+}
 
 
 // Home 
@@ -26,7 +36,8 @@ async(req,res,next)=>{
     try{
         res.redirect("login")
     }catch(error){
-        return console.log(error);
+        const errors = signupErr(error)
+        return console.log({errors});
     }
 })
 
@@ -41,20 +52,24 @@ router.post('/login',(req,res,next)=>{
                 if (error) return next(error)
 
                 const body = {_id: User._id , email:User.email}
-                const token = jwt.sign({User : body},'my deep mind')
-                res.json({token,body})
+                const token = createToken(User._id);
+                res.cookie('jwt',token,{httpOnly:true},maxAge)
+                res.status(200).json({user: User._id})
             })
         }catch(error){
-            return next(error)
+            const errors = loginErrors(error)
+            return res.json({errors})
         }
     })(req,res,next)
 })
 
 
 //logout
-
-router.get('/logout',Logout)
-
+// utilise les cookies pour déconnecté l'utilisateur
+router.get('/logout',(req,res)=>{
+    res.cookie('jwt','',{maxAge:1}),
+    res.redirect('/')
+})
 
 //Général
 

@@ -36,15 +36,5 @@ passport.use('login', new Strategy({
 
 }))
 
-passport.use(new JwtStrategy,{
-    secretOrkey : "my deep mind",
-    jwtFromRequest: ExtractJwt.fromUrlQueryParameter('token')
-},
-async (done,token)=>{
-    try{
-        return done(null,token.user)
-    }catch(error){
-        return done(error)
-    }
-});
+
 module.exports = passport

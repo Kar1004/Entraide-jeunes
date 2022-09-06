@@ -1,26 +1,38 @@
 const bcrypt = require('bcrypt')
-const {isEmail} = require('validator')
+const {isEmail } = require('validator')
 const mongoose = require('mongoose')
 
 
 const UserSchema = mongoose.Schema({
+    
+    
     name:{
         type:String,
         maxlenght:20,
         minlenght:2,
         unique:true,
         trim:true,
+    }, speudo:{
+        type:String,
+        maxlenght:20,
+        minlenght:2,
+        unique:true,
+        trim:true,
+        require:true
     },
     email:{
         type:String,
         require:true,
         unique:true,
-        trim:true
+        trim:true,
+        validate:[isEmail]
     },
     password:{
         type:String,
         require:true,
-        maxlenght:100
+        maxlenght:100,
+        minlenght:10,
+      
     },
     picture:{
         type:String,
@@ -29,6 +41,7 @@ const UserSchema = mongoose.Schema({
     bio:{
         type:String,
         maxlenght:1200,
+        minlenght:100
     },
 
     followers:{
