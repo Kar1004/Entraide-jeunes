@@ -3,6 +3,7 @@ const express = require('express')
 const { Home} = require ('../controllers/Home.js')
 const {  Signup , Login, Logout } = require('../controllers/Register.js')
 const { AllUser, UserInfo, udapteUser, DeleteUser, Unfollow, Follow } = require('../controllers/UserController.js')
+const { readAllPost, createPost, UpdateMessagePost, deleteMessageUser, LikeMessage, UnLikeMessage } = require('../controllers/messageController')
 const passport = require("passport")
 const router = express.Router()
 require('dotenv').config()
@@ -90,6 +91,34 @@ router.delete('/:id',DeleteUser)
 
 router.patch('/follow/:id', Follow)
 router.patch('/unfollow/:id', Unfollow)
+
+//Avoir tous les messages 
+router.get('/message/allMessage', readAllPost)
+
+
+
+//Obtenir un message
+router.post('/message/createMessage',createPost)
+
+
+//udpate le message
+
+router.put('/message/:id', UpdateMessagePost)
+
+
+//Delete Message
+
+router.delete('/message/:id', deleteMessageUser)
+
+
+// LIke Message
+
+router.patch('/likeMessage/:id', LikeMessage)
+//Unlike Message
+
+router.patch('/UnlikeMessage/:id', UnLikeMessage)
+
+
 
 
 module.exports = router;

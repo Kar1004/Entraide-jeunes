@@ -8,7 +8,7 @@ exports.AllUser = async (_,res) =>{
 
 exports.UserInfo = (req,res)=>{
      if (!ObjectId.isValid(req.params.id)){
-     return res.status(400).send('ID UKNOW' + err)
+     return res.status(400).send('ID UKNOW')
      }
      UserModel.findById(req.params.id,(err,docs)=>{
  if(!err){
@@ -22,7 +22,7 @@ exports.UserInfo = (req,res)=>{
 exports.udapteUser= async (req,res)=>{
  
     if (!ObjectId.isValid(req.params.id)){
-    return res.status(400).send('ID UKNOW' + err)
+    return res.status(400).send('ID UKNOW')
     }
     try{
         await UserModel.findOneAndUpdate(  req.params.id,{
@@ -42,7 +42,7 @@ exports.udapteUser= async (req,res)=>{
 //Delete
 exports.DeleteUser = async (req,res)=>{
     if (!ObjectId.isValid(req.params.id)){
-    return res.status(400).send('ID UKNOW' + err)
+    return res.status(400).send('ID UKNOW')
     }
     try{
          UserModel.deleteOne( {_id : req.params.id}).exec();
@@ -56,7 +56,7 @@ exports.DeleteUser = async (req,res)=>{
 
 exports.Follow = async (req,res)=>{
   if (!ObjectId.isValid(req.params.id) || !ObjectId.isValid(req.body.id) ){
-  return res.status(400).send('ID UKNOW' + err)
+  return res.status(400).send('ID UKNOW')
   }
   try{
     //s'ajouter à la liste de la personne qu'on veut suivre
@@ -91,7 +91,7 @@ exports.Follow = async (req,res)=>{
 
 exports.Unfollow = async (req,res)=>{
   if (!ObjectId.isValid(req.params.id)|| !ObjectId.isValid(req.body.id)){
-  return res.status(400).send('ID UKNOW' + err)
+  return res.status(400).send('ID UKNOW')
   }
  
   UserModel.findOneAndUpdate(  req.params.id,{

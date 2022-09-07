@@ -1,33 +1,27 @@
 const messageModels = require("../model/messagePostModel")
 const ObjectId = require('mongoose').Types.ObjectId
 
-exports.readAllPost = async (res,req)=>{
- const message =  messageModels.find()
+exports.readAllPost = async (req,res)=>{
+ const message = await  messageModels.find()
    res.status(200).json(message)
 }
 
-exports.createPost = async (res,req)=>{
-    const message = new messageModels({
+exports.createPost = async (req,res)=>{
+    const message =  new messageModels({
         posterId : req.body.posterId,
         message  : req.body.message,
         video : req.body.video,
         liker:[],
         comment:{},
     })
-    await message.save().then( msg =>{
-        if(err){
-            console.log(err);
-            res.status(400).json(err)
-        }else{
-            res.satus(200).json(msg)
-        }
-    })
-}
+   await  message.save().then( msg =>
 
+            res.status(200).json(msg))
+     }
 
-exports.UpdateMessagePost = async (res,req) =>{
+exports.UpdateMessagePost = async (req,res) =>{
     if (!ObjectId.isValid(req.params.id)){
-        return res.status(400).send('ID UKNOW' + err)
+        return res.status(400).send('ID UKNOW')
         }
    try{
         messageModels.findByIdAndUpdate( req.params.id ,{
@@ -42,9 +36,9 @@ return  res.status(500).json({message:err})
 }
 
 
-exports.deleteMessageUser = async (res,req) =>{
+exports.deleteMessageUser = async (req,res) =>{
     if (!ObjectId.isValid(req.params.id)){
-        return res.status(400).send('ID UKNOW' + err)
+        return res.status(400).send('ID UKNOW')
         }
    try{
     messageModels.findByIdAndDelete(req.params.id).exec();
@@ -55,9 +49,9 @@ exports.deleteMessageUser = async (res,req) =>{
 }
 
 
-exports.LikeMessage = async (res, req) =>{
+exports.LikeMessage = async (req,res) =>{
     if (!ObjectId.isValid(req.params.id)){
-        return res.status(400).send('ID UKNOW' + err)
+        return res.status(400).send('ID UKNOW')
         }
    try{
       await messageModels.findById(req.params.id,{
@@ -88,9 +82,9 @@ UserModel.findOneAndUpdate( req.body.id,{
 }
 
 
-exports.UnLikeMessage = async (res, req) =>{
+exports.UnLikeMessage = async (req,res) =>{
     if (!ObjectId.isValid(req.params.id)){
-        return res.status(400).send('ID UKNOW' + err)
+        return res.status(400).send('ID UKNOW')
         }
    try{
       await messageModels.findById(req.params.id,{
