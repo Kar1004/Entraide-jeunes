@@ -1,18 +1,25 @@
 <form action="/signup" method="post">
-    {{!-- <div class="mb-3">
-    <div id="Name" class="form-text">tapez votre nom :</div>
-    <label for="exampleInputName" class="form-label">Name</label>
-    <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="name">
-  </div> --}}
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  <div class="p-5">
+    <div class="form-floating my-3 me-5 mx-5">
+      <input type="name" class="form-control" id="floatingInput" placeholder="  Henry l...">
+      <label for="floatingInput">Nom :</label>
+    </div>
+    <div class="form-floating my-3 me-5 mx-5">
+      <input type="name" class="form-control" id="floatingInput" placeholder="Colibri">
+      <label for="floatingInput">Speudo :</label>
+    </div>
+    <div class="form-floating my-3 me-5 mx-5">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Adress email :</label>
+    </div>
+    <div class="form-floating my-3 me-5 mx-5">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Mot de passse : </label>
+    </div>
+    <div class="d-flex justify-content-around align-items-center">
+      <p>Vous avez déjà un compte,<a href="login" class="text-uppercase text-sucess align-center"> Heureux de te revoir
+          !</a></p>
+      <button type="submit" class="btn btn-success d-flex justify-content-center">Rejoins-nous</button>
+    </div>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <a href="login">Vous avez déjà un compte, connectez vous</a>
-  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

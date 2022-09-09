@@ -3,7 +3,7 @@ const express = require('express')
 const { Home} = require ('../controllers/Home.js')
 const {  Signup , Login, Logout } = require('../controllers/Register.js')
 const { AllUser, UserInfo, udapteUser, DeleteUser, Unfollow, Follow } = require('../controllers/UserController.js')
-const { readAllPost, createPost, UpdateMessagePost, deleteMessageUser, LikeMessage, UnLikeMessage } = require('../controllers/messageController')
+const { readAllPost, createPost, UpdateMessagePost, deleteMessageUser, LikeMessage, UnLikeMessage, commentMessage, editCommentMessage, deleteCommentMessage } = require('../controllers/messageController')
 const passport = require("passport")
 const router = express.Router()
 require('dotenv').config()
@@ -118,7 +118,11 @@ router.patch('/likeMessage/:id', LikeMessage)
 
 router.patch('/UnlikeMessage/:id', UnLikeMessage)
 
+//patch
 
+// router.patch('/comments/:id',commentMessage)
+// router.patch('/edit-comments/:id',editCommentMessage)
+// router.patch('/deletecomments/:id',deleteCommentMessage)
 
 
 module.exports = router;

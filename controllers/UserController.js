@@ -1,11 +1,16 @@
 const UserModel = require("../model/UserModels.js")
 const ObjectId = require('mongoose').Types.ObjectId
 
+
+// pour récupérer toutes les données j'utilise le .find et le select pour retirer
+// la possibilité de voir du password
 exports.AllUser = async (_,res) =>{
   const users =await UserModel.find().select('-password ');
   res.status(200).json(users)
 }
-
+//pour récupérer les infos d'un seul utilisateurs
+// On véridie avec ObjectId si il existe et valide 
+// Aprrés avec  FindbyId nous essyons de le retrouver avec le Id aléatoire
 exports.UserInfo = (req,res)=>{
      if (!ObjectId.isValid(req.params.id)){
      return res.status(400).send('ID UKNOW')
@@ -18,6 +23,9 @@ exports.UserInfo = (req,res)=>{
     }
 }).select('-password')
 }
+
+//ppour la mise a jour du profil de l'utilisateur 
+//Nous utiliserons findOneandUpdate 
 
 exports.udapteUser= async (req,res)=>{
  
@@ -34,10 +42,13 @@ exports.udapteUser= async (req,res)=>{
                return res.send(docs);
         })
     }catch(err){
-      return  res.status(500).json({message:"err"})
+      return  res.status(500).json({message:err})
     }
 
 }
+
+//pour le delte 
+// Nous pouvons supprimer l'utilisateur avec son id 
 
 //Delete
 exports.DeleteUser = async (req,res)=>{
@@ -46,9 +57,9 @@ exports.DeleteUser = async (req,res)=>{
     }
     try{
          UserModel.deleteOne( {_id : req.params.id}).exec();
-       return res.status(200).json({message:"Sucessfully deleted"})
+       return res.status(200).json({message:"Supprimé"})
     }catch(err){
-       return res.status(500).json({message:"err"})
+       return res.status(500).json({message:err})
     }
 }
 
