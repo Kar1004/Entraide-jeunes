@@ -17,12 +17,13 @@ function Connecter(props) {
             password
         }
     }).then( (res)=>{
-            if(res.data.errors){
-                emailError.innerHtml = res.data.errors.email;
-                passwordError.innerHtml = res.data.errors.password;
+      console.log(res.data);
+            if(res.data.error){
+                emailError.innerHtml = res.data.error.email;
+                passwordError.innerHtml = res.data.error.password;
             }else{
                 window.location ='/'
-                console.log(res.data);
+                console.log(res);
             }
     }).catch((err)=>{
       console.log(err);
