@@ -47,7 +47,7 @@ router.post('/login',(req,res,next)=>{
         try{
             if(err || !User){
                 const error = new Error('une erreur est survenue')
-                 return next(error)
+                 return next()
             }
             req.login(User,{session :false},async error => {
                 if (error) return next(error)

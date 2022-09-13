@@ -11,8 +11,7 @@ function Connecter(props) {
     const passwordError = document.querySelector(".password .error")
     axios({
         method:"post",
-        url:`${process.env.REACT_APP_API_URL}/login`,
-        withCredentials:true,
+        url:`${process.env.REACT_APP_API_URL}login`,
         data:{
             email,
             password
@@ -23,6 +22,7 @@ function Connecter(props) {
                 passwordError.innerHtml = res.data.errors.password;
             }else{
                 window.location ='/'
+                console.log(res.data);
             }
     }).catch((err)=>{
       console.log(err);
@@ -40,7 +40,7 @@ function Connecter(props) {
         onChange={(event) => SetEmail(event.target.value)}
         value={email}
       />
-      <div className="emailError"></div>
+      <div className="email error"></div>
       <label htmlFor="password">password</label>
       <input
         id="password"
@@ -50,7 +50,7 @@ function Connecter(props) {
         onChange={(event) => SetPassword(event.target.value)}
         value={password}
       />
-       <div className="passworderror"></div>
+       <div className="password error"></div>
 
       <input type="submit" value="heureux de te revoir" />
     </form>
