@@ -28,7 +28,6 @@ exports.UserInfo = (req,res)=>{
 //Nous utiliserons findOneandUpdate 
 
 exports.udapteUser= async (req,res)=>{
- 
     if (!ObjectId.isValid(req.params.id)){
     return res.status(400).send('ID UKNOW')
     }

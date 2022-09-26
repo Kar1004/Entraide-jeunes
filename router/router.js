@@ -1,7 +1,6 @@
 
 const express = require('express')
 const { Home} = require ('../controllers/Home.js')
-const {  Signup , Login, Logout } = require('../controllers/Register.js')
 const { AllUser, UserInfo, udapteUser, DeleteUser, Unfollow, Follow } = require('../controllers/UserController.js')
 const { readAllPost, createPost, UpdateMessagePost, deleteMessageUser, LikeMessage, UnLikeMessage, commentMessage, editCommentMessage, deleteCommentMessage } = require('../controllers/messageController')
 const passport = require("passport")
@@ -23,39 +22,24 @@ const createToken = (id) =>{
 
 router.get('/Home', Home)
 
-
-//Signup
-router.get('/signup', Signup)
-
-//login
-router.get('/login', Login)
-
 //authentification
 
 router.post('/signup', passport.authenticate('signup',{session:false}),
 async(req,res,next)=>{
-    try{
-        res.redirect("login")
-    }catch(error){
-        const errors = signupErr(error)
-        return console.log({errors});
-    }
+       
+        next()  
 })
 
 router.post('/login',(req,res,next)=>{
-    passport.authenticate(('login'),async(err,User)=>{
+    passport.authenticate(('login'),async(_,User)=>{
         try{
-            if(err || !User){
-                const error = new Error('une erreur est survenue')
-                 return next()
-            }
-            req.login(User,{session :false},async error => {
-                if (error) return next(error)
 
-                const body = {_id: User._id , email:User.email}
+            req.login(User,{session :false},async (error) => {
+                if (error) return next(error)
                 const token = createToken(User._id);
                 res.cookie('jwt',token,{httpOnly:true},maxAge)
                 res.status(200).json({user: User._id})
+             
             })
         }catch(error){
             const errors = loginErrors(error)
