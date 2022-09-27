@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 
 const UserSchema = mongoose.Schema({
-     speudo:{
+     pseudo:{
         type:String,
         maxlenght:20,
         minlenght:2,
@@ -48,27 +48,7 @@ const UserSchema = mongoose.Schema({
     }
 
 )
-// bcrypt password
 
-UserSchema.pre('save' , async function (next){
-    const user = this
-
-    const hash =  await bcrypt.hash(user.password,10)
-
-    user.password =hash
-
-    next()
-})
-
-//compare password
-
-UserSchema.methods.isValidPassword = async function(password){
-    const user= this
-
-    const isSame = await bcrypt.compare(password,user.pasword)
-
-    return isSame // retour faux ou vrai
-}
 
 const UserModel = mongoose.model("User",UserSchema)
 

@@ -8,7 +8,7 @@
 exports.signupErr = (err) => {
     let errors = { email: '', pseudo: '', password: '' }
 
-    if (err.message.include('speudo')) {
+    if (err.message.include('pseudo')) {
         return errors.pseudo = "pseudo incorrect ou déja pris"
     }
     if (err.message.include('email')) {
