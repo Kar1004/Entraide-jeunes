@@ -5,18 +5,18 @@ const UserModel = require("../model/UserModels.js")
 //Vérifie si l'utilisateur existe , sinon ils se  déconnecte
 exports.CheckUser = (req, res, next) => {
     const token = req.cookies.jwt
+    console.log(token);
     if (token) {
         // Vérrifie si le token existe
         jwt.verify(token, "deep", async (err, decodedToken) => {
             if (err) {
-                res.local.user = null,
                     res.cookie('jwt', '', { maxAge: 1 })
                 next()
             } else {
                 //L'utilisateur trouvé on utilise son id pour vérifier le token
-                let User = UserModel.findById(decodedToken.id);
-                res.locals.user = User
-                console.log(User);
+                const  user = UserModel.findById(decodedToken.id);
+                // res.locals.user = user
+                console.log(user);
                 next()
             }
         })

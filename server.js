@@ -20,17 +20,14 @@ PORT = process.env.PORT || 8000
 mongoose.connect('mongodb://localhost:27017/database')
 app.use(cors())
 app.use(express.json())
-app.set('view engine','handlebars')
-app.engine('handlebars',exphbs.engine())
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(express.static(path.join('public')))
 app.use(router)
 
 
 //verify middleware
-app.get('*',CheckUser)
+app.get('/jwtId/api',CheckUser)
 app.get('/jwtId/id',RequireAuth, (_,res)=>{
     res.status(200).send(res.locals.user._id)
 })

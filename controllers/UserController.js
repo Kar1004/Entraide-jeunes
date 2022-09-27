@@ -46,7 +46,7 @@ exports.udapteUser= async (req,res)=>{
 
 }
 
-//pour le delte 
+//pour le delete 
 // Nous pouvons supprimer l'utilisateur avec son id 
 
 //Delete

@@ -4,15 +4,7 @@ const mongoose = require('mongoose')
 
 
 const UserSchema = mongoose.Schema({
-    
-    
-    name:{
-        type:String,
-        maxlenght:20,
-        minlenght:2,
-        unique:true,
-        trim:true,
-    }, speudo:{
+     speudo:{
         type:String,
         maxlenght:20,
         minlenght:2,
@@ -30,12 +22,11 @@ const UserSchema = mongoose.Schema({
         type:String,
         require:true,
         maxlenght:100,
-        minlenght:10,
+        minlenght:6,
       
     },
     picture:{
         type:String,
-
     },
     bio:{
         type:String,

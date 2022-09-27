@@ -6,13 +6,15 @@ const { readAllPost, createPost, UpdateMessagePost, deleteMessageUser, LikeMessa
 const passport = require("passport")
 const router = express.Router()
 require('dotenv').config()
-
-
 const jwt = require('jsonwebtoken')
-const { signupErr, loginErrors } = require('../utils/error.utils.js')
+
+
+
+
+//jwt
 const maxAge =3*24*60*1000
 const createToken = (id) =>{
-    return jwt.sign({id},"deep",{
+    return jwt.sign({id},process.env.TOKEN_KEY,{
         expiresIn:maxAge
     })
 }
@@ -42,8 +44,7 @@ router.post('/login',(req,res,next)=>{
              
             })
         }catch(error){
-            const errors = loginErrors(error)
-            return res.json({errors})
+            return res.send(error)
         }
     })(req,res,next)
 })

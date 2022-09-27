@@ -6,10 +6,10 @@
 // d'un return 
 
 exports.signupErr = (err) => {
-    let errors = { email: '', speudo: '', password: '' }
+    let errors = { email: '', pseudo: '', password: '' }
 
     if (err.message.include('speudo')) {
-        return errors.speudo = "speudo incorrect ou déja pris"
+        return errors.pseudo = "pseudo incorrect ou déja pris"
     }
     if (err.message.include('email')) {
         return errors.email = " l'email est incorrecte"

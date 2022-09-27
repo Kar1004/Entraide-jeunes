@@ -1,10 +1,10 @@
 const passport = require("passport")
 const { Strategy } = require('passport-local').Strategy
-const JwtStrategy = require('passport-jwt').Strategy;
-const  ExtractJwt = require('passport-jwt').ExtractJwt;
+const { signupErr ,loginErrors } = require("../utils/error.utils")
 const UserModel = require('../model/UserModels.js')
 
 passport.use('signup', new Strategy({
+    pseudoField:'pseudo',
     usernameField : 'email',
     passwordField: 'password'
 }, async (email, password, done) => {
@@ -13,7 +13,8 @@ passport.use('signup', new Strategy({
         User.save().then(user =>console.log(user))
         return done(null, User)
     } catch (error) {
-        return done(error)
+         const err = signupErr(error)
+        return done (err)
     }
 
 }))
@@ -27,11 +28,12 @@ passport.use('login', new Strategy({
     try {
         const User = await UserModel.findOne({ email })
         if (!User) {
-            return done(null, false, { message: "veuillez tapez un  utilisateur" })
+            return done(null, false, { message: "L'email n'est pas valide " })
         }
-        return done(null, User, { message: "veuillez tapez un  utilisateur" })
+        return done(null, User, { message: "l'utilisateur est valide" })
     } catch (error) {
-        return done(error)
+        const err = loginErrors(error)
+        return done (err)
     }
 
 }))
