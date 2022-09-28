@@ -22,18 +22,19 @@ function Signup() {
     },
   };
       axios(configuration)
-      .then((result) => {console.log(result);})
+      .then((result) => {console.log(result);
+        window.location.href = "/login"; })
       .catch((error) => {console.log(error);})
   
   return (
     <div className="signupForm">
-      <form onSubmit={(e)=>handleSubmit(e)} className="Form">
+      <form onSubmit={handleSubmit} className="Form">
         <div class="form-floating m-3">
           <input
             type="text"
             class="form-control"
             id ='pseudo'
-            onChange={(e) => setPseudo(e.target.value)}
+            onChange={(event) => setPseudo(event.target.value)}
             value = {pseudo}
             aria-label="tapez votre pseudo"
             placeholder="Colibri"
@@ -46,7 +47,7 @@ function Signup() {
             class="form-control"
             aria-label="tapez votre email"
             placeholder="name@example.com"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             value = {email}
           />
           <label htmlFor="Email">Email :</label>
@@ -58,7 +59,7 @@ function Signup() {
             id="floatingPassword"
             aria-label="tapez votre password"
             placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
             value = {password}
           />
           <label htmlFor="password">Password</label>
@@ -72,7 +73,7 @@ function Signup() {
       </form>
       <div className="ImageSignup">
         <img
-          src="../../../public/assets/register/signup/Cheer up-bro.svg"
+          src="./img/PeopleBro.png"
           alt="Ami encourgeant son ami"
           class="ImgSign"
         />

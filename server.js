@@ -55,7 +55,8 @@ app.get("/user/CheckUser", (req, res) => {
 
 // authentication endpoint
 app.get("/user/refresh", auth ,(req, res) => {
-  res.json({ message: "tu as accés" })
+  res.json({ message: "tu as accés" , user : req.user})
+  c
 });
 
 app.listen(PORT, () => {

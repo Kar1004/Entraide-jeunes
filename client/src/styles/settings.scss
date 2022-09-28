@@ -3,6 +3,7 @@
 $color-1 : #def7e4;
 $color-2:#0f2d4a;
 $color-3:#88c8a4;
+$color-icone: #5c8e82;
 $white:#ffffff;
 
 
@@ -28,7 +29,6 @@ $white:#ffffff;
     resize: none;
     border-radius: 20px;
     width: 270px;
-    font-family: $font-1;
     background: $white;
   }
   textarea {
@@ -40,7 +40,6 @@ $white:#ffffff;
   input[type="submit"] {
     background: $color-2;
     color: $color-1;
-    font-family: $font-3;
     cursor: pointer;
     transition: 0.2s;
     margin: 0;
@@ -67,7 +66,6 @@ $white:#ffffff;
     }
   }
   body {
-    font-family: $font-2;
     line-height: 1.4rem;
     background: $white;
     color: $color-3;
@@ -80,3 +78,30 @@ $white:#ffffff;
     color: green;
     font-weight: bold;
   }
+
+  a{
+    text-decoration: none;
+    text-transform: uppercase;
+     :hover{
+       color: #def7e4;
+     }
+  }
+
+  .logo{
+    color: $color-icone;
+    :hover{
+      color: #def7e4;
+    }
+  }
+  .form-control {
+    color: $white;
+    background-color: $color-2;
+}
+.form-control:hover{
+  color: $white;
+}
+.form-control:focus{
+  background-color: $color-2;
+  color: $white;
+  box-shadow: inset -6px 0px 0px 0px rgba(255, 255, 255, 0.75) ;
+}

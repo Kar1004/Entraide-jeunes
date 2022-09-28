@@ -73,10 +73,12 @@ router.post("/user/signup", (req, res) => {
 });
 
 router.post("/user/login", (req, res) => {
-  UserModel.findOne({ email: req.body.email }) .then((user) => {
+  UserModel.findOne({ email: req.body.email })
+    .then((user) => {
       // compare les mots de passse
       console.log(user);
-      bcrypt.compare(req.body.password, user.password)
+      bcrypt
+        .compare(req.body.password, user.password)
         // si les mots de passe concorde
         .then((passwordCheck) => {
           //   regarde si ils ne matchent pas

@@ -29,7 +29,7 @@ function Login() {
           path: "/",
         });
         // redirect user to the auth page
-        window.location.href = "/profil";
+        window.location.href = "/";
 
         setLogin(true);
       })
@@ -43,7 +43,7 @@ function Login() {
   return (
     <>
       <div className="LoginForm">
-        <form onSubmit={(e) => handleSubmit(e)} className="Form">
+        <form className="Form" onSubmit={handleSubmit}>
           <div class="form-floating m-3">
             <input
               type="email"
@@ -51,7 +51,7 @@ function Login() {
               id="floatingInput"
               aria-label="tapez votre email"
               placeholder="name@example.com"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(event) => setEmail(event.target.value)}
               value={email}
             />
             <label for="floatingInput">Email :</label>
@@ -63,7 +63,7 @@ function Login() {
               id="floatingPassword"
               aria-label="tapez votre password"
               placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(event) => setPassword(event.target.value)}
               value={password}
             />
             <label for="floatingPassword">Password</label>
@@ -72,7 +72,7 @@ function Login() {
         </form>
         <div className="ImageSignup">
           <img
-            src="../../../public/assets/register/login/Cheer up-pana.svg"
+            src="../../../public/assets/register/login/PeopleBro.png"
             alt="Ami encourgeant son ami"
             class="ImgLog"
           />
