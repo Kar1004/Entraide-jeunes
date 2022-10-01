@@ -1,34 +1,34 @@
 {
   "name": "entraide-jeunes",
   "version": "1.0.0",
-  "description": "un site d'entraide entre jeune et de base de donné pour les associations",
+  "description": "",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kar1004/Entraide-jeunes.git"
+  },
   "author": "Al",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kar1004/Entraide-jeunes/issues"
+  },
+  "homepage": "https://github.com/Kar1004/Entraide-jeunes#readme",
   "dependencies": {
-    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.6",
-    "express-router": "^0.0.1",
-    "express-session": "^1.17.3",
-    "handlebars": "^4.7.7",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.5.4",
-    "nodemon": "^2.0.19",
+    "mongoose": "^6.6.3",
+    "nodemon": "^2.0.20",
     "passport": "^0.6.0",
-    "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0",
-    "passport-session": "^1.0.2",
-    "path": "^0.12.7",
     "validator": "^13.7.0"
   }
 }

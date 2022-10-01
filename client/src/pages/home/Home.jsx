@@ -4,7 +4,7 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import TopBar from '../../components/TopBar/TopBar.jsx'
 import './home.scss'
 import Cookies from "universal-cookie";
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect} from 'react'
 import axios from 'axios'
 import { UidContext } from '../../components/AppContext/appContext.jsx'
 import Register from '../register/Register.jsx'

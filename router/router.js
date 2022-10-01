@@ -7,6 +7,8 @@ const {
   DeleteUser,
   Unfollow,
   Follow,
+  createProfil,
+  editProfil,
 } = require("../controllers/UserController.js");
 const {
   readAllPost,
@@ -136,6 +138,14 @@ router.get("/", AllUser);
 
 //Info of user
 router.get("/:id", UserInfo);
+
+//info profil
+
+router.patch("/user/create/:id", createProfil)
+
+//info profil
+
+router.patch("/user/edit/:id", editProfil)
 
 //udapte a User
 

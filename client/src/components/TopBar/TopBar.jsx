@@ -4,9 +4,8 @@ import '../../styles/settings.scss'
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import UmbrellaIcon from '@mui/icons-material/Umbrella';
 import FaceIcon from '@mui/icons-material/Face';
-import Profil from '../../pages/profil/profil';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 

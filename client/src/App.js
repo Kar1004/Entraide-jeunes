@@ -9,11 +9,13 @@ import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
 import LandingPage from "./pages/LandingPage/LandingPage";
+import ProfilUser from "./pages/profil/ProfilUser";
 const cookies = new Cookies();
 const token = cookies.get("TOKEN");
 
 function App() {
   const [uid, setUid] = useState(null);
+  
   useEffect(() => {
     const Fetch = () => {
       const configuration = {
@@ -47,6 +49,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profil" element={<Profil />} />
+          <Route path="/profiluser" element={<ProfilUser />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           </>

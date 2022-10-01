@@ -1,57 +1,64 @@
-const bcrypt = require('bcrypt')
-const {isEmail } = require('validator')
-const mongoose = require('mongoose')
+const bcrypt = require("bcrypt");
+const { isEmail } = require("validator");
+const mongoose = require("mongoose");
 
-
-const UserSchema = mongoose.Schema({
-     pseudo:{
-        type:String,
-        maxlenght:20,
-        minlenght:2,
-        unique:true,
-        trim:true,
+const UserSchema = mongoose.Schema(
+  {
+    email: {
+      type: String,
+      require: true,
+      unique: true,
+      trim: true,
+      validate: [isEmail],
     },
-    email:{
-        type:String,
-        require:true,
-        unique:true,
-        trim:true,
-        validate:[isEmail]
+    password: {
+      type: String,
+      require: true,
+      maxlenght: 100,
+      minlenght: 6,
     },
-    password:{
-        type:String,
-        require:true,
-        maxlenght:100,
-        minlenght:6,
-      
+    bio: {
+      type: [
+        {
+          pseudo: {
+            type: String,
+            maxlenght: 20,
+            minlenght: 2,
+            trim: true,
+          },
+          bio: {
+            type: String,
+            maxlenght: 4000,
+          },
+          picture: {
+            type: String,
+          },
+          timestamp: {
+            type: Number,
+            default: Date.now,
+            immutable: true,
+            required: true,
+          },
+        },
+      ],
+      required: true,
     },
-    picture:{
-        type:String,
+
+    followers: {
+      type: [String],
     },
-    bio:{
-        type:String,
-        maxlenght:1200,
-        minlenght:100
+    following: {
+      type: [String],
     },
-
-    followers:{
-        type:[String]
+    like: {
+      type: [String],
     },
-    following:{
-        type:[String]
-    },
-    like:{
-        type: [String]
-    }},
-    {
-        timeStamps:true,
-    }
+  },
+  {
+    timeStamps: true,
+  }
+);
 
-)
+const UserModel = mongoose.model("User", UserSchema);
 
-
-const UserModel = mongoose.model("User",UserSchema)
-
-
-
-module.exports = UserModel
+module.exports = UserModel;
