@@ -15,6 +15,8 @@ const token = cookies.get("TOKEN");
 function Home () {
  const uid = useContext(UidContext)
 
+
+
   useEffect(() => {
     const Fetch = ()=>{
     const configuration = {
@@ -35,7 +37,8 @@ function Home () {
     Fetch()
   }, []);
 
-   
+
+  
    
   return (
     <div>

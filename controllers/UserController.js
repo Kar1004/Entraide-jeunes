@@ -32,7 +32,7 @@ exports.udapteUser = async (req, res) => {
   }
   try {
     await UserModel.findOneAndUpdate(
-      req.params.id,
+     {_id: req.params.id},
       {
         $set: {
           name: req.body.name,
@@ -59,7 +59,7 @@ exports.createProfil = async (req, res) => {
   }
   try {
     await UserModel.findByIdByUpdate(
-      req.params.id ,
+      {_id:req.params.id},
       {
         $push: {
           bio: {
@@ -76,7 +76,7 @@ exports.createProfil = async (req, res) => {
       }
     );
   } catch (err) {
-   console.log(err);;
+   ;
   }
 };
 //edit

@@ -13,7 +13,7 @@ function TopBar() {
  
  
     const logout = () => {
-      cookies.remove("TOKEN", { path: "/" });
+      cookies.remove("TOKEN");
       window.location.href = "/login";
       
   }
@@ -21,11 +21,11 @@ function TopBar() {
     <>
     <div class="TopBar">
         <div className="">
-            <span>ENTRA<UmbrellaIcon className='umbrella logo'  aria-label="Entraide"/>DE</span>
+            <span>ENTRA <Link to="/home"><UmbrellaIcon className='umbrella logo'  aria-label="Entraide"/></Link>DE</span>
         </div>
         <div className="Connected">
           <div className="profil">
-           <FaceIcon /><Link  to="/profil" ><p>Profil</p></Link>
+           <FaceIcon /><Link  to="/profiluser" ><p>Profil</p></Link>
           </div>
         <div className="logout">
               <MeetingRoomIcon onClick={logout} className="logo"aria-label="se déconnecter" />

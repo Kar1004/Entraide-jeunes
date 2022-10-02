@@ -4,6 +4,7 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import'./post.scss'
 
 
 const style = {
@@ -43,10 +44,12 @@ export default function KeepMountedModal() {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h6" component="h4">
             Tapez votre message ,pour avoir de l'aide ou en pour proposer de
             l'aide :
           </Typography>
+          <div className="comment">
+          <label class="text-center">Type de demande :</label>
           <input
             sx={style2}
             id="type de message"
@@ -56,7 +59,8 @@ export default function KeepMountedModal() {
             aria-label="tapez le type de votre message"
             
           />
-          <input
+          <label class="text-center">Tapez votre message :</label>
+          <textarea
             sx={style2}
             id="Message : "
             label="Message"
@@ -64,6 +68,7 @@ export default function KeepMountedModal() {
              placeholder="tapez votre demande"
             aria-label="tapez votre demande"
           />
+          </div>
         </Box>
       </Modal>
     </div>
