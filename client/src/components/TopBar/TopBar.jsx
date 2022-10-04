@@ -19,8 +19,8 @@ function TopBar() {
   }
   return (
     <>
-    <div class="TopBar">
-        <div className="">
+    {/* <div class="TopBar">
+        <div class="title">
             <span>ENTRA <Link to="/home"><UmbrellaIcon className='umbrella logo'  aria-label="Entraide"/></Link>DE</span>
         </div>
         <div className="Connected">
@@ -31,7 +31,26 @@ function TopBar() {
               <MeetingRoomIcon onClick={logout} className="logo"aria-label="se déconnecter" />
         </div>
         </div>
+    </div> */}
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid topBar ">
+  <div class="title">
+       <span>ENTRA <Link to="/home"><UmbrellaIcon className='umbrella logo'  aria-label="Entraide"/></Link>DE</span>
+      </div>
+    <div class="collapse navbar-collapse d-flex flex-end mt-3" id="navbarNav">
+      <ul class="menuList">
+        <li class="Profil " >
+        <Link  to="/profiluser" ><p>Profil</p></Link>
+        </li>
+        <li>
+        <div className="logout">
+              <MeetingRoomIcon onClick={logout} className="logo"aria-label="se déconnecter" />
+        </div>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
     </>  
   )
 }

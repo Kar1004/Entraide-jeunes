@@ -51,9 +51,6 @@ function Home () {
         <Feed />
         <Sidebar />
       </div>
-      <div className="footer">
-        <Post />
-      </div>
       </>):(<>
       <Register />
       </>

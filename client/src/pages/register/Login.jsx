@@ -13,29 +13,30 @@ function Login() {
   const [login, setLogin] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
-  const configuration = {
-    method: "post",
-    url: "http://localhost:1004/user/login",
-    data: {
-      email,
-      password,
-    },
-  };
-  axios(configuration)
-      .then((result) => {
-        // set the cookie
-        cookies.set("TOKEN", result.data.token, {
-          path: "/",
+    const configuration = {
+      method: "post",
+      url: "http://localhost:1004/user/login",
+      data: {
+        email,
+        password,
+      },
+    };
+    axios(configuration)
+        .then((result) => {
+          // set the cookie
+          cookies.set("TOKEN", result.data.token, {
+            path: "/",
+          });
+          // redirect user to the auth page
+          window.location.href = "/profil";
+  
+          setLogin(true);
+        })
+        .catch((error) => {
+          error = new Error();
         });
-        // redirect user to the auth page
-        window.location.href = "/";
-
-        setLogin(true);
-      })
-      .catch((error) => {
-        error = new Error();
-      });
+  };
+ 
     
 
   
@@ -77,7 +78,7 @@ function Login() {
             class="ImgLog"
           />
         </div>
-        <div className="messageSign"><p>On ne se connait pas encore , allez-viens nous rejoindre <Link  to="/signup">:)</Link></p></div>
+        <div className="messageSign"><p>On ne se connait pas encore , allez-viens nous rejoindre <Link  to="/signup" class="fs-5">🌂</Link></p></div>
       </div>
       {login ? (
           <p className="text-success">You Are Logged in Successfully</p>

@@ -11,20 +11,21 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const configuration = {
+      method: "post",
+      url: "http://localhost:1004/user/signup",
+      data: {
+        pseudo,
+        email,
+        password,
+      },
+    };
+        axios(configuration)
+        .then((result) => {console.log(result);
+          window.location.href = "/login"; })
+        .catch((error) => {console.log(error);})
   }
-  const configuration = {
-    method: "post",
-    url: "http://localhost:1004/user/signup",
-    data: {
-      pseudo,
-      email,
-      password,
-    },
-  };
-      axios(configuration)
-      .then((result) => {console.log(result);
-        window.location.href = "/login"; })
-      .catch((error) => {console.log(error);})
+
   
   return (
     <div className="signupForm">
@@ -64,20 +65,22 @@ function Signup() {
           />
           <label htmlFor="password">Password</label>
         </div>
-        <button class="btn btn-outline-success" onClick={()=>setShowPass(!showPass)}>{showPass ? "cacher" : "montrer"}</button>
+        <div className="SignupForm d-flex flex-row m-3">
+        <button class="btn btn-dark " onClick={()=>setShowPass(!showPass)}>{showPass ? "cacher" : "montrer"}</button>
         <button
-          class="btn btn-outline-primary"
+          class="btn btn-dark"
           type="submit"
           onClick={(e) => handleSubmit(e)}
         >Rejoins-nous!</button>
+        </div>
       </form>
-      <div className="ImageSignup">
+      <div className="ImageSignup bg-white rounded-pill ">
         <img
           src="./img/PeopleBro.png"
           alt="Ami encourgeant son ami"
           class="ImgSign"
         />
-           <div className="messageSign"><p>Ah ,tu es déjà des notre ! <Link to="/login">:)</Link></p></div>
+           <div class="messageSign text-dark"><p>Ah ,tu es déjà des notre ! <Link to="/login" class="fs-5">☂️</Link></p></div>
       </div>
     </div>
   );

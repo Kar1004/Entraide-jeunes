@@ -146,7 +146,6 @@ router.patch("/user/create/:id", createProfil)
 //info profil
 
 router.patch("/user/edit/:id", editProfil)
-
 //udapte a User
 
 router.put("/:id", udapteUser);

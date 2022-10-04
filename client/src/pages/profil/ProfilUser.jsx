@@ -2,14 +2,12 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { UidContext } from '../../components/AppContext/appContext';
 import TopBar from '../../components/TopBar/TopBar';
+import './profil.scss'
 
 function ProfilUser() {
     const uid = useContext(UidContext);
     const [pseudo,setPseudo]=useState("")
     const [bio,setBio]=useState("")
-  
-
-
     
       useEffect(() => {
         console.log(uid.userId);
@@ -33,9 +31,11 @@ function ProfilUser() {
   return (
     <div>
           <TopBar />
-          <span>{pseudo}</span>
-          <p>{bio}</p>
-       
+          <div className="profilUser">
+          <span class="text-uppercase fw-bold">PEEK A BOO ,{pseudo}</span>
+          <span class="text-uppercase ">bio</span>
+          <p class="text-justify">{bio}</p>
+          </div>
     </div>
   )
 }

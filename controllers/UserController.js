@@ -58,7 +58,7 @@ exports.createProfil = async (req, res) => {
     return res.status(400).send("ID UKNOW");
   }
   try {
-    await UserModel.findByIdByUpdate(
+    await UserModel.findOneAndUpdate(
       {_id:req.params.id},
       {
         $push: {
@@ -76,7 +76,7 @@ exports.createProfil = async (req, res) => {
       }
     );
   } catch (err) {
-   ;
+     console.log(err);
   }
 };
 //edit
