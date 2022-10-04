@@ -1,76 +1,38 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import'./post.scss'
 
+import "./post.scss";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 700,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-const style2 = {
-  display: "flex",
-  flexDirection:"row",
-  alignItems:"center",
-  width: 500,
-  height: 100,
-};
-
-export default function KeepMountedModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+function Post() {
   return (
-    <div>
-      <Button onClick={handleOpen}>
-        <AddCircleIcon aria-label="tapez pour inscrire votre demande" />
-      </Button>
-      <Modal
-        keepMounted
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="keep-mounted-modal-title"
-        aria-describedby="keep-mounted-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h4">
-            Tapez votre message ,pour avoir de l'aide ou en pour proposer de
-            l'aide :
-          </Typography>
-          <div className="comment">
-          <label class="text-center">Type de demande :</label>
-          <input
-            sx={style2}
-            id="type de message"
-            label="type: "
-            type="text"
-            placeholder="tapez le type de votre message"
-            aria-label="tapez le type de votre message"
-            
-          />
-          <label class="text-center">Tapez votre message :</label>
-          <textarea
-            sx={style2}
-            id="Message : "
-            label="Message"
-            type="text"
-             placeholder="tapez votre demande"
-            aria-label="tapez votre demande"
-          />
+    <>
+<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">☔</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog bg-dark">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title text-dark fs-5" id="exampleModalLabel"> DEMANDE </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="action-name"  class="col-form-label text-dark">TAPEZ VOTRE DEMANDE :</label>
+            <input type="text" class="form-control" id="action-name"/>
           </div>
-        </Box>
-      </Modal>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label text-dark">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer d-flex flex-row align-content-scretch justify-content-stretch flex-nowrap">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">fermer</button>
+        <button type="button" class="btn btn-success">Que des gouttes de bohneur affluent sur toi ! </button>
+      </div>
     </div>
+  </div>
+</div>
+    </>
   );
 }
+export default Post;

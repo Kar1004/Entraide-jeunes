@@ -1,12 +1,11 @@
-
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import './styles/login.scss'
 import Cookies from "universal-cookie";
+import LoginForm from './img/girlswithaumbrella.png'
 import { Link } from "react-router-dom";
 const cookies = new Cookies();
-
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,8 +28,6 @@ function Login() {
           });
           // redirect user to the auth page
           window.location.href = "/profil";
-  
-          setLogin(true);
         })
         .catch((error) => {
           error = new Error();
@@ -43,7 +40,7 @@ function Login() {
 
   return (
     <>
-      <div className="LoginForm">
+      <div className="loginForm">
         <form className="Form" onSubmit={handleSubmit}>
           <div class="form-floating m-3">
             <input
@@ -69,22 +66,30 @@ function Login() {
             />
             <label for="floatingPassword">Password</label>
           </div>
-          <button type="button" class="btn btn-outline-primary" onClick={(e) => handleSubmit(e)}>Heureux de te revoir !</button>
+          <button type="button" class="btn btn-success" onClick={(e) => handleSubmit(e)}>Heureux de te revoir !</button>
         </form>
-        <div className="ImageSignup">
+        <div className="SecondPart bg-dark rounded-circle d-flex flex-column align-items-center">
+        <div className="ImageLogin">
           <img
-            src="../../../public/assets/register/login/PeopleBro.png"
-            alt="Ami encourgeant son ami"
+            src={LoginForm}
+            alt="girl with a umbralla"
             class="ImgLog"
           />
         </div>
-        <div className="messageSign"><p>On ne se connait pas encore , allez-viens nous rejoindre <Link  to="/signup" class="fs-5">🌂</Link></p></div>
+        <div className="messageSign">
+        <div class="ribbon">
+         <div class="ribbon-stitches-top"></div>
+         <div class="ribbon-content"><p>On ne se connait pas encore , allez-viens nous rejoindre <Link  to="/signup" class="fs-5">🌂</Link></p></div>
+         <div class="ribbon-stitches-bottom"></div>
+        </div>
+        </div>
       </div>
-      {login ? (
+      </div>
+      {/* {login ? (
           <p className="text-success">You Are Logged in Successfully</p>
         ) : (
           <p className="text-danger">You Are Not Logged in</p>
-        )}
+        )} */}
     </>
   );
 }

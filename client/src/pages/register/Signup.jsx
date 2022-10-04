@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './styles/signup.scss'
+import SignImg from './img/PeopleBro.png'
 import { Link } from "react-router-dom";
 function Signup() {
   const [pseudo, setPseudo] = useState("");
@@ -15,9 +16,8 @@ function Signup() {
       method: "post",
       url: "http://localhost:1004/user/signup",
       data: {
-        pseudo,
         email,
-        password,
+        password
       },
     };
         axios(configuration)
@@ -30,18 +30,6 @@ function Signup() {
   return (
     <div className="signupForm">
       <form onSubmit={handleSubmit} className="Form">
-        <div class="form-floating m-3">
-          <input
-            type="text"
-            class="form-control"
-            id ='pseudo'
-            onChange={(event) => setPseudo(event.target.value)}
-            value = {pseudo}
-            aria-label="tapez votre pseudo"
-            placeholder="Colibri"
-          />
-          <label htlmFor="pseudo">Pseudo : </label>
-        </div>
         <div class="form-floating m-3">
           <input
             type="email"
@@ -66,7 +54,7 @@ function Signup() {
           <label htmlFor="password">Password</label>
         </div>
         <div className="SignupForm d-flex flex-row m-3">
-        <button class="btn btn-dark " onClick={()=>setShowPass(!showPass)}>{showPass ? "cacher" : "montrer"}</button>
+        <button class="btn btn-dark button-r " onClick={()=>setShowPass(!showPass)}>{showPass ? "Cacher" : "Montrer"}</button>
         <button
           class="btn btn-dark"
           type="submit"
@@ -74,13 +62,13 @@ function Signup() {
         >Rejoins-nous!</button>
         </div>
       </form>
-      <div className="ImageSignup bg-white rounded-pill ">
+      <div className="ImageSignup bg-dark rounded-pill d-flex flex-column align-items-center">
         <img
-          src="./img/PeopleBro.png"
+          src={SignImg}
           alt="Ami encourgeant son ami"
           class="ImgSign"
         />
-           <div class="messageSign text-dark"><p>Ah ,tu es déjà des notre ! <Link to="/login" class="fs-5">☂️</Link></p></div>
+           <div class="messageSign text-white"><p>Ah ,tu es déjà des notre ! <Link to="/login" class="fs-5">☂️</Link></p></div>
       </div>
     </div>
   );

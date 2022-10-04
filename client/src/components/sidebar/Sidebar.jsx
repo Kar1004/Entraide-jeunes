@@ -1,32 +1,41 @@
-import './sidebar.scss'
-import InboxIcon from '@mui/icons-material/Inbox';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import React from "react";
+import "./SideBar.scss";
+
 function Sidebar() {
   return (
-    <>
-    <div class="sidebar">
-      <div className="ProfilofUser">
-
-      </div>
-      <div className="SideBarList">
-          <ul  className="listofItems">
-            <li class="Demander">
-              <InboxIcon class="Icon" aria-label="Demande d'aide"/>
-              <span>Boite à demande</span>
-            </li>
-            <li class="Infos">
-              <ContactSupportIcon  class="Icon" aria-label="info utile"/>
-              <span>Info utille</span>
-            </li>
-          </ul>
-      </div>
-      <div className="logout">
-
-      </div>
-
+    <div id="sidebar" className="bg-dark">
+      <header  className="text-center border-bottom  p-3 mb-5 bg-body">
+        <a href="#">Entraide</a>
+      </header>
+      <ul class="nav">
+        <li>
+          <a href="#">
+           Boite à demande
+          </a>
+        </li>
+        <li>
+          <a href="#">
+             Blog personnel
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            infos utiles
+          </a>
+        </li>
+        <li>
+          <a href="#">
+           Logement provisoire
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              Contact
+          </a>
+        </li>
+      </ul>
     </div>
-    </>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;

@@ -1,15 +1,9 @@
 import * as React from 'react';
 import './CardEntraide.scss'
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
-import Avatar from '@mui/material/Avatar';
-import { red } from '@mui/material/colors';
-import { Typography } from '@mui/material';
 import { UidContext } from '../AppContext/appContext';
 import axios from 'axios';
 import { useState } from 'react';
-
+import './CardEntraide.scss'
 
 
  function CardEntraide() {
@@ -38,22 +32,22 @@ import { useState } from 'react';
 
  
   return (
-    <Card sx={{ maxWidth:500 , maxHeight : 320 , margin:10 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="utilisateur">
-          {pseudo}
-          </Avatar>
-        }
-        title="Demande"
-        subheader="Hello  les aidants"
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia, doloribus.
-        </Typography>
-      </CardContent>
-    </Card>
+  
+    <div class="card text-center">
+  <div class="card-header">
+    demande 
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Apprendre une autre langue</h5>
+    <p class="card-text text-justify">Etant passioné de langue latine ,j'aimerai bien échangé avec quelqu'un pour m'améliorer, si quelqu'un veux bien m'aider dans ma démarche , je le remercierai infiniment.</p>
+    <a href="#" class="btn btn-outline-red ">💓</a>
+  </div>
+  <div class="card-footer text-muted">
+    <div className="creator">{pseudo}</div>
+    <div className="date"></div>
+  </div>
+</div>
+
   );
 }
 export default CardEntraide

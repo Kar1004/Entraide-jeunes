@@ -1,14 +1,13 @@
-import CardEntraide from '../share/CardEntraide.jsx'
-import './feed.scss'
+import React from 'react';
+import CardEntraide from '../share/CardEntraide';
+import './Feed.scss'
 
-function Feed() {
-  return (
-    <>
-    <div class="feed">
-      <CardEntraide />
-    </div>
-    </>
-  )
+function Feed(props) {
+    return (
+        <div class="feed">
+            <CardEntraide />
+        </div>
+    );
 }
 
-export default Feed
+export default Feed;
