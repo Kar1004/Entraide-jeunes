@@ -10,6 +10,7 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ProfilUser from "./pages/profil/ProfilUser";
+import ProfilEdit from "./pages/profil/profilEdit";
 const cookies = new Cookies();
 const token = cookies.get("TOKEN");
 
@@ -50,6 +51,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profil" element={<Profil />} />
           <Route path="/profiluser" element={<ProfilUser />} />
+          <Route path="/profilEdit" element={<ProfilEdit />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           </>

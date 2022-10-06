@@ -5,7 +5,7 @@ import { UidContext } from "../../components/AppContext/appContext.jsx";
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import "./profil.scss";
 
-function Profil() {
+function ProfilEdit() {
   const uid = useContext(UidContext);
   const [pseudo, setPseudo] = useState("");
   const [bio, setBio] = useState("");
@@ -16,7 +16,7 @@ function Profil() {
       console.log(action);
       const configuration = {
         method: "patch",
-        url: `http://localhost:1004/user/create/${uid.userId}`,
+        url: `http://localhost:1004/user/edit/${uid.userId}`,
         data: {
           pseudo,
           bio,
@@ -47,7 +47,7 @@ function Profil() {
         <div>
           <TopBar />
           <h1>Profil</h1>
-          <h3 className="text-danger">La perfection est une qualité qu'on aime ! !</h3>
+          <h3 className="text-danger">La perfection est une qualité qu'on aime !</h3>
           <form onSubmit={handleSubmit} class="formulaire">
             <div class="form-group">
               <label for="formGroupExampleInput">PSEUDO : </label>
@@ -73,7 +73,7 @@ function Profil() {
                 value={bio}
               ></textarea>
             </div>
-            <button type="button" class="btn btn-sucess" onClick={(e) => handleSubmit(e)}>Ravie de mieux te connaitre!</button>
+            <button type="button" class="btn btn-outline-success" onClick={(e) => handleSubmit(e)}>☂️</button>
           </form>
         </div>
       ) : (
@@ -86,4 +86,4 @@ function Profil() {
   );
 }
 
-export default Profil;
+export default ProfilEdit;
