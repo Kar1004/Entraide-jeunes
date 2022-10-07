@@ -9,9 +9,11 @@ exports.readAllPost = async (req, res) => {
 
 exports.createPost = async (req, res) => {
     const message = new messageModels({
+        type: req.body.type,
         posterId: req.body.posterId,
         message: req.body.message,
         video: req.body.video,
+        picture:req.body.picture,
         liker: [],
         comment: {},
     })

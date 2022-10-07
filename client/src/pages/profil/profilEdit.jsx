@@ -66,7 +66,7 @@ function ProfilEdit() {
               <textarea
                 class="form-control"
                 id="bio"
-                placeholder="Chaque mot est une porte vers toi pour pouvoir t'aider"
+                placeholder=""
                 aria-label="Tapez votre Bio"
                 rows="3"
                 onChange={(event) => setBio(event.target.value)}

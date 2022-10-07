@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const messageSchema = mongoose.Schema({
+
+  type:{
+    type:String,
+    require:true
+  },
   posterId: {
     type: String,
     require: true,
