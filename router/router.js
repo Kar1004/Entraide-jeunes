@@ -9,6 +9,9 @@ const {
   Follow,
   createProfil,
   editProfil,
+  editBlog,
+  DeleteBlog,
+  createBlog,
 } = require("../controllers/UserController.js");
 const {
   readAllPost,
@@ -38,7 +41,8 @@ router.get("/Home", Home);
 
 // SIGNUP
 router.post("/user/signup", (req, res) => {
-  // hash the password
+  //hashé le password
+
   bcrypt
     .hash(req.body.password, 10)
     .then((hashedPassword) => {
@@ -53,14 +57,15 @@ router.post("/user/signup", (req, res) => {
 
         .then((result) => {
           res.status(201).send({
-            message: "User Created Successfully",
+            message: "l'utilisateur a bien été crée",
             result,
           });
         })
+    
 
         .catch((error) => {
           res.status(500).send({
-            message: "Error creating user",
+            message: "l'utilisateur n'a pas été crée",
             error,
           });
         });
@@ -68,7 +73,7 @@ router.post("/user/signup", (req, res) => {
     //
     .catch((e) => {
       res.status(500).send({
-        message: "Password was not hashed successfully",
+        message: "le mdp n''est pas hashé correctement",
         e,
       });
     });
@@ -153,6 +158,35 @@ router.put("/:id", udapteUser);
 //delete User
 
 router.delete("/:id", DeleteUser);
+
+//populate
+
+router.get('/user/userInformation',(req,res)=>{
+  UserModel.find()
+  .populate("Message")
+  .then(user => {
+     res.json(user); 
+  })
+  .catch((e)=>{
+    console.log(e);
+  })
+})
+
+
+
+
+//create blog
+
+router.patch("/user/create/:id", createBlog)
+
+//blog edit
+
+router.patch("/user/edit/:id", editBlog)
+
+
+//delete blog
+
+router.delete("/:id", DeleteBlog);
 
 //patch for followers
 

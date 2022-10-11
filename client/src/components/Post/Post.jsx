@@ -23,8 +23,6 @@ function Post() {
         .then((result) => {
           if(true){
           console.log(result);
-          window.location.href = "/home";
-
           }
         })
         .catch((error) => {

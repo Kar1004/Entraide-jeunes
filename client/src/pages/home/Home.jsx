@@ -27,6 +27,7 @@ function Home() {
       axios(configuration)
         .then((result) => {
           console.log(result.data.user.userEmail);
+          console.log(result);
         })
         .catch((error) => {
           error = new Error();

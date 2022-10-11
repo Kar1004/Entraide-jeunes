@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const messageSchema = mongoose.Schema({
 
@@ -6,10 +7,10 @@ const messageSchema = mongoose.Schema({
     type:String,
     require:true
   },
-  posterId: {
-    type: String,
-    require: true,
-  },
+  User: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"User",
+  }],
   message: {
     type: String,
     require: true,

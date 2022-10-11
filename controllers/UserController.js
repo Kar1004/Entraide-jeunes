@@ -201,3 +201,114 @@ exports.Unfollow = async (req, res) => {
     }
   );
 };
+
+
+// Pour les blogs 
+//les blogs serviront de journal intimes;
+
+
+
+//pour la mise a jour du profil de l'utilisateur
+//Nous utiliserons findOneandUpdate
+
+
+
+// pour les info du profil
+
+//ppour la mise a jour du profil de l'utilisateur
+//Nous utiliserons findOneandUpdate
+
+exports.createBlog = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(400).send("ID UKNOW");
+  }
+  try {
+    await UserModel.findOneAndUpdate(
+      {_id:req.params.id},
+      {
+        $push: {
+          blogs: {
+            title: req.body.title,
+            blog: req.body.blog,
+            picture: req.body.picture,
+            timestamp: new Date().getTime(),
+          },
+        },
+      },
+      { new: true },
+      (_, docs) => {
+        return res.send(docs);
+      }
+    );
+  } catch (err) {
+     console.log(err);
+  }
+};
+//edit
+
+exports.editBlog = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(400).send("ID UKNOW");
+  }
+  try {
+    await UserModel.findByIdAndUpdate(
+     req.params.id ,
+      {
+        $set: {
+          blogs: {
+            title: req.body.title,
+            blogs: req.body.blogs,
+            picture: req.body.picture,
+          },
+        },
+      },
+      { new: true },
+      (_, docs) => {
+        return res.send(docs);
+      }
+    );
+  } catch (err) {
+    console.log(err);;
+  }
+};
+
+exports.editBlog = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(400).send("ID UKNOW");
+  }
+  try {
+    await UserModel.findByIdAndUpdate(
+     req.params.id ,
+      {
+        $set: {
+          blogs: {
+            title: req.body.title,
+            blogs: req.body.blogs,
+            picture: req.body.picture,
+          },
+        },
+      },
+      { new: true },
+      (_, docs) => {
+        return res.send(docs);
+      }
+    );
+  } catch (err) {
+    console.log(err);;
+  }
+};
+
+
+
+//Delete
+exports.DeleteBlog = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(400).send("ID UKNOW");
+  }
+  try {
+    UserModel.deleteOne({ _id: req.params.id }).exec();
+    return res.status(200).json({ message: "Supprimé" });
+  } catch (err) {
+    return res.status(500).json({ message: err });
+  }
+};
