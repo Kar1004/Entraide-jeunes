@@ -47,7 +47,6 @@ function Profil() {
         <div>
           <TopBar />
           <h1>Profil</h1>
-          <h3 className="text-danger">La perfection est une qualité qu'on aime ! !</h3>
           <form onSubmit={handleSubmit} class="formulaire">
             <div class="form-group">
               <label for="formGroupExampleInput">PSEUDO : </label>

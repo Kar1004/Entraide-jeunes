@@ -9,6 +9,7 @@ function ProfilUser() {
   const uid = useContext(UidContext);
   const [pseudo, setPseudo] = useState("");
   const [bio, setBio] = useState("");
+  // const [ostUser,setPostUser]=useState("");
 
   useEffect(() => {
     console.log(uid.userId);
@@ -21,6 +22,7 @@ function ProfilUser() {
         .then((result) => {
           setBio(result.data.bio[0].bio);
           setPseudo(result.data.bio[0].pseudo);
+          console.log(result);
         })
         .catch((error) => {
           error = new Error();
@@ -38,14 +40,26 @@ function ProfilUser() {
             <span class="text-uppercase fw-bold">PEEK A BOO ,{pseudo}</span>
           </div>
           <div class="card-body">
-            <span class="text-uppercase ">bio</span>
-            <p class="text-justify">{bio}</p>
+            <span class="text-uppercase">bio</span>
+            <p class="text-center text-light">{bio}</p>
           </div>
         </div>
         <Link to="/profilEdit" class="btn btn-success">
           {" "}
           Editer
         </Link>
+        <div className="UserCreation">
+          <div className="UserPost">
+
+          </div>
+          <div className="userBlog">
+
+          </div>
+          <div className="userContact">
+            
+          </div>
+
+        </div>
       </div>
     </div>
   );

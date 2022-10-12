@@ -68,9 +68,6 @@ function TopBar() {
         <li class="nav-item ">
           <Link  class="nav-link mx-2 " to="/profiluser" ><p>Profil</p></Link>
         </li>
-        <li  class="nav-item" >
-              <MeetingRoomIcon onClick={logout} className="logo"aria-label="se déconnecter" />
-        </li>
       </ul>
     </div>
   </div>

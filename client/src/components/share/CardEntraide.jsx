@@ -16,7 +16,7 @@ import './CardEntraide.scss'
   
     <div class="card text-center">
   <div class="card-header">
-    {props.type }
+   <p class="text-title"> {props.type }</p>
   </div>
   <div class="card-body">
     <p class="card-title text-light ">{props.message}</p>

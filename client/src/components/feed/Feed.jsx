@@ -36,7 +36,7 @@ function Feed() {
 
 
   return (
-    <div>
+    <div class="feedPost">
 
         {
           posts.map((post)=>{

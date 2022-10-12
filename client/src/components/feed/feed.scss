@@ -3,5 +3,13 @@
     display: flex;
     flex-direction: row;
     padding: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 715rem;
+}
 
+.feedPost{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

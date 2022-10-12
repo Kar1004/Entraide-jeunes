@@ -11,6 +11,9 @@ import axios from "axios";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ProfilUser from "./pages/profil/ProfilUser";
 import ProfilEdit from "./pages/profil/profilEdit";
+import Blog from "./pages/UserCreation/blog/blog";
+import Contact from "./pages/UserCreation/contact/contact";
+import Lost from "./pages/lost/Lost";
 const cookies = new Cookies();
 const token = cookies.get("TOKEN");
 
@@ -52,8 +55,11 @@ function App() {
           <Route path="/profil" element={<Profil />} />
           <Route path="/profiluser" element={<ProfilUser />} />
           <Route path="/profilEdit" element={<ProfilEdit />} />
+          <Route path="/blog" element={<Blog />}/>
+          <Route path="/contact" element={<Contact/>}/>
           <Route path="/Login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/lost"  element={<Lost />} />
           </>
           ):(
             <>
