@@ -35,30 +35,26 @@ function ProfilUser() {
     <div>
       <TopBar />
       <div className="profilUser">
-        <div class="card">
+        <p>Profil</p>
+        <div class="card shadow p-3 mb-5 bg-body rounded">
           <div class="card-header">
-            <span class="text-uppercase fw-bold">PEEK A BOO ,{pseudo}</span>
+            <p class="text-uppercase fw-bold text-center ">PEEK A BOO ,{pseudo}</p>
           </div>
           <div class="card-body">
-            <span class="text-uppercase">bio</span>
+            <p class="text-uppercase bioCss text-light">bio</p>
             <p class="text-center text-light">{bio}</p>
           </div>
         </div>
-        <Link to="/profilEdit" class="btn btn-success">
+        <div>
+        <Link to="/profilEdit" class="btn btn-success rounded-circle shadow-sm p-3 mb-5 bg-body rounded">
           {" "}
-          Editer
+          ✏️
         </Link>
+        </div>
         <div className="UserCreation">
-          <div className="UserPost">
-
-          </div>
-          <div className="userBlog">
-
-          </div>
-          <div className="userContact">
-            
-          </div>
-
+          <div className="UserPost"></div>
+          <div className="userBlog"></div>
+          <div className="userContact"></div>
         </div>
       </div>
     </div>
