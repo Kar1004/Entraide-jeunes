@@ -35,7 +35,7 @@ function Post() {
     <>
       <button
         type="button"
-        class="btn btn-outline-dark"
+        class="btn btn-light umbrella rounded-pill"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         data-bs-whatever="@fat"

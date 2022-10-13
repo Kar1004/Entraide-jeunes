@@ -43,7 +43,6 @@ function Home() {
         <>
           <div className="topBar">
             <TopBar />
-            <Post />
           </div>
           <div className="body-center">
             <div className=" m-0 d-flex justify-content-around">
