@@ -6,7 +6,7 @@ import Cookies from "universal-cookie";
 import LoginForm from './img/girlswithaumbrella.png'
 import { Link } from "react-router-dom";
 const cookies = new Cookies();
-function Login() {
+function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);

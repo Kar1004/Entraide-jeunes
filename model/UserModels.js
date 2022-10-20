@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const UserSchema = mongoose.Schema(
   {
+
     email: {
       type: String,
       require: true,
@@ -17,10 +18,11 @@ const UserSchema = mongoose.Schema(
       maxlenght: 100,
       minlenght: 6,
     },
-    Message: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Message",
-    },
+      messages:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Message",
+        required:true
+    }],
     bio: {
       type: [
         {
@@ -97,9 +99,6 @@ const UserSchema = mongoose.Schema(
           city: {
             type: String,
             maxlenght: 400,
-          },
-          mail: {
-            type: String,
           },
         },
       ],

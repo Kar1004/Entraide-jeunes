@@ -103,7 +103,7 @@ router.post("/user/login", (req, res) => {
               userId: user._id,
               userEmail: user.email,
             },
-            "TOKEN_KEY",
+            process.env.TOKEN_KEY,
             { expiresIn: maxAge }
           );
 
@@ -162,10 +162,12 @@ router.delete("/:id", DeleteUser);
 //populate
 
 router.get('/user/userInformation',(req,res)=>{
+
   UserModel.find()
-  .populate("Message")
+  .populate("messages")
+  .exec()
   .then(user => {
-     res.json(user); 
+     console.log(user);
   })
   .catch((e)=>{
     console.log(e);
@@ -192,6 +194,11 @@ router.delete("/:id", DeleteBlog);
 
 router.patch("/follow/:id", Follow);
 router.patch("/unfollow/:id", Unfollow);
+
+
+
+
+
 
 //Avoir tous les messages
 router.get("/message/allMessage", readAllPost);

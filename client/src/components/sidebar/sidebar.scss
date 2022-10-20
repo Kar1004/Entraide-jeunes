@@ -1,12 +1,13 @@
 .NavBg{
     background-color: #74EBD5;
     background-image: linear-gradient(180deg, #74EBD5 0%, #fcfcff 100%);
-    
-    
     text-transform: capitalize;
 
 a{
     color: black;
+    :hover{
+        color: cadetblue;
+    }
 }
 
 .nav{
@@ -16,9 +17,20 @@ a{
 
   
 }
+svg{
+    color: black;
+    transition:  2s;
+    margin-right: 5px;
+    :hover{
+        color: darkslategrey;
+        text-decoration: double;
+    }
+}
 
 li{
     margin: 10px;
+    display: flex;
+    align-items: center;
 
 }
 }

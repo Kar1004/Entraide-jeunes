@@ -3,7 +3,7 @@ import axios from "axios";
 import './styles/signup.scss'
 import SignImg from './img/PeopleBro.png'
 import { Link } from "react-router-dom";
-function Signup() {
+function Signup(props) {
   const [pseudo, setPseudo] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

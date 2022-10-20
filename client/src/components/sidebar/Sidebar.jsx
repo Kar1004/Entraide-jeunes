@@ -18,9 +18,9 @@ function Sidebar() {
   return (
     <div id="sidebar" className="NavBg">
       <header   className="text-center border-bottom  p-3 mb-5 bg-body">
-        <a href="#" className="text-dark">Entraide</a>
+        <a href="#" className="text-dark ">Bienvenu</a>
       </header>
-      <ul class="nav">
+      <ul class="nav align-center">
         <li>
        < AllInboxIcon/>
           <a href="#">

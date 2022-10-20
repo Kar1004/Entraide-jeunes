@@ -51,7 +51,7 @@ function TopBar() {
       </ul>
     </div>
   </div>
-</nav> */}<nav class="navbar navbar-expand-lg navbar-dark p-3 bg-dark " id="headerNav">
+</nav> */}<nav class="navbar navbar-expand-lg    headerNav " id="headerNav">
   <div class="container">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -60,10 +60,10 @@ function TopBar() {
     <div class=" collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto ">
         <li class="nav-item">
-        <Link to="/home"class="nav-link mx-2 active" >Home</Link>
+        <Link to="/home"class="nav-link mx-2 " >Home</Link>
         </li>
         <li class="nav-item d-none d-lg-block">
-          <span class="nav-link mx-2">ENTRA <Link to="/home"><UmbrellaIcon className='umbrella logo'  aria-label="Entraide"/></Link>DE</span>
+          <span class="nav-link mx-2 ">ENTRA <Link to="/home"><UmbrellaIcon className='umbrella logo'  aria-label="Entraide"/></Link>DE</span>
         </li>
         <li class="nav-item ">
           <Link  class="nav-link mx-2 " to="/profiluser" ><p>Profil</p></Link>

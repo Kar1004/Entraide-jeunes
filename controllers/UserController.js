@@ -1,3 +1,4 @@
+
 const UserModel = require("../model/UserModels.js");
 const ObjectId = require("mongoose").Types.ObjectId;
 
@@ -95,6 +96,11 @@ exports.editProfil = async (req, res) => {
             bio: req.body.bio,
             picture: req.body.picture,
           },
+        contact:{
+           city: req.body.city,
+           mail:req.nody.mail,
+           age:req.body.age
+        }
         },
       },
       { new: true },
@@ -312,3 +318,5 @@ exports.DeleteBlog = async (req, res) => {
     return res.status(500).json({ message: err });
   }
 };
+
+
