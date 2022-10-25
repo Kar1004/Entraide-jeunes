@@ -9,7 +9,7 @@ import Umbrella from "@mui/icons-material/Umbrella";
 const cookies = new Cookies();
 
 
-function Sidebar() {
+function sidebar() {
   const logout = () => {
     cookies.remove("TOKEN");
     window.location.href = "/login";
@@ -52,4 +52,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default sidebar;

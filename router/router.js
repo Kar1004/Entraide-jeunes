@@ -30,6 +30,7 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const UserModel = require("../model/UserModels.js");
+const messageModels = require("../model/messagePostModel.js");
 
 //jwt
 const maxAge = 3 * 24 * 60 * 1000;
@@ -161,20 +162,31 @@ router.delete("/:id", DeleteUser);
 
 //populate
 
-router.get('/user/userInformation',(req,res)=>{
+// findAll
+// router.get('/user/userInformation', (req,res)=>{
+//   UserModel.find().populate('messages').exec()
+//   .then(docs => {
+//      res.status(200).json({
+//       users : docs
+//      })
+//     })
+//   .catch((e)=>{
+//     res.status(500).json({error: e})
+//   })
+// })
 
-  UserModel.find()
-  .populate("messages")
-  .exec()
-  .then(user => {
-     console.log(user);
-  })
+
+router.get('/message/userInformation', (req,res)=>{
+  messageModels.findOne().populate('users').exec()
+  .then(docs => {
+     res.status(200).json({
+     users: docs
+     })
+    })
   .catch((e)=>{
-    console.log(e);
+    res.status(500).json({error: e})
   })
 })
-
-
 
 
 //create blog
@@ -204,7 +216,7 @@ router.patch("/unfollow/:id", Unfollow);
 router.get("/message/allMessage", readAllPost);
 
 //Obtenir un message
-router.post("/message/createMessage", createPost);
+router.post("/message/createMessage/:id", createPost);
 
 //udpate le message
 

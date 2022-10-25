@@ -20,7 +20,7 @@ const UserSchema = mongoose.Schema(
     },
       messages:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Message",
+        ref: "messages",
         required:true
     }],
     bio: {
@@ -110,6 +110,6 @@ const UserSchema = mongoose.Schema(
   }
 );
 
-const UserModel = mongoose.model("User", UserSchema);
+const UserModel = mongoose.model("users", UserSchema,"users");
 
 module.exports = UserModel;

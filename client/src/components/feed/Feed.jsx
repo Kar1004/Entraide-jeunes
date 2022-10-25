@@ -11,6 +11,8 @@ function Feed() {
   // const uid = useContext(UidContext);
   const [posts, SetPost] = useState([]);
 
+
+
     const Fetch = () => {
       const configuration = {
         method: "get",
@@ -20,10 +22,8 @@ function Feed() {
       };
       axios(configuration)
         .then((result) => {
-          console.log(result.data);
           try{
-          SetPost(result.data)
-          console.log(posts)
+          SetPost(result.data.users)
           }catch(e){
             console.log(e);
           }
@@ -34,13 +34,13 @@ function Feed() {
     };
     Fetch();
 
-
+    
   return (
     <div class="feedPost">
 
         {
           posts.map((post)=>{
-            return <CardEntraide message={post.message} type={post.type} />
+            return <CardEntraide message={post.message} type={post.type} pseudo={post.users.bio[0].pseudo}/>
           })
           
         }

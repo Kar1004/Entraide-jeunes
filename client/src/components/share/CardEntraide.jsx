@@ -12,25 +12,23 @@ import { UidContext } from "../../components/AppContext/appContext.jsx";
   const [pseudo, setPseudo] = useState("");
 
 
-
   useEffect(() => {
-    console.log(uid.userId);
     const Fetch = () => {
       const configuration = {
         method: "get",
-        url: `http://localhost:1004/${uid.userId}`,
+        url: `http://localhost:1004/message/allMessage`,
       };
       axios(configuration)
         .then((result) => {
-          setPseudo(result.data.bio[0].pseudo);
-          console.log(result);
+          console.log(result.data.users.users && result.data.users.users);
+   
         })
         .catch((error) => {
           error = new Error();
         });
     };
     Fetch();
-  }, [uid]);
+  }, []);
 
 
   return (
@@ -45,7 +43,7 @@ import { UidContext } from "../../components/AppContext/appContext.jsx";
     <a href="#" class="btn btn-outline-red ">💓</a>
   </div>
   <div class="card-footer text-muted">
-    <div className="creator">{pseudo}</div>
+    <div className="creator">{props.pseudo}</div>
     <div className="date"></div>
   </div>
 </div>

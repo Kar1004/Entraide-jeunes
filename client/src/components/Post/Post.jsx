@@ -1,36 +1,48 @@
 import axios from "axios";
-import React, { useState } from "react";
-
+import React, { useContext, useEffect, useState } from "react";
+import { UidContext } from "../../components/AppContext/appContext.jsx";
 import "./post.scss";
 
 function Post() {
+  const uid = useContext(UidContext);
   const [type, setType] = useState("");
   const [message, setMessage] = useState("");
+  const [idMsg,setIdMsg]= useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const PostFetch = () => {
       const configuration = {
         method: "post",
-        url: "http://localhost:1004/message/createMessage",
+        url: `http://localhost:1004/message/createMessage/${uid.userId}`,
         data: {
           type,
-          message,
+          message
         },
       };
       axios(configuration)
         .then((result) => {
-          if(true){
+           setIdMsg(result.data._id)
+    });
+  }
+  useEffect(() => {
+    const Fetch = () => {
+      const configuration = {
+        method: "get",
+        url: `http://localhost:1004/message/userInformation`,
+      };
+      axios(configuration)
+        .then((result) => {
           console.log(result);
-          }
         })
         .catch((error) => {
           error = new Error();
         });
     };
-    PostFetch();
-  };
+    Fetch();
+  }, []);
+
+
   return (
     <>
       <button

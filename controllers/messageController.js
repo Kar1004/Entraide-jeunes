@@ -1,16 +1,24 @@
 const messageModels = require("../model/messagePostModel")
+const UserModel = require("../model/UserModels")
 const router = require("../router/router")
 const ObjectId = require('mongoose').Types.ObjectId
 
 exports.readAllPost = async (req, res) => {
-    const message = await messageModels.find()
-    res.status(200).json(message)
+    messageModels.find().populate('users').exec()
+    .then(docs => {
+       res.status(200).json({
+       users: docs
+       })
+      })
+    .catch((e)=>{
+      res.status(500).json({error: e})
+    })
 }
 
 exports.createPost = async (req, res) => {
     const message = new messageModels({
         type: req.body.type,
-        posterId: req.body.posterId,
+        users: req.params.id,
         message: req.body.message,
         video: req.body.video,
         picture:req.body.picture,
@@ -121,6 +129,9 @@ exports.UnLikeMessage = async (req, res) => {
     }
 
 }
+
+
+  
 
 //Comment
 

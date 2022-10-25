@@ -72,7 +72,7 @@ function Profil() {
                 value={bio}
               ></textarea>
             </div>
-            <button type="button" class="btn btn-sucess" onClick={(e) => handleSubmit(e)}>Ravie de mieux te connaitre!</button>
+            <button type="button" class="btn btn-outline-sucess" onClick={(e) => handleSubmit(e)}>Ravie de mieux te connaitre!</button>
           </form>
         </div>
       ) : (

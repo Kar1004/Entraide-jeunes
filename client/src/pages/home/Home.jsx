@@ -7,8 +7,9 @@ import axios from "axios";
 import { UidContext } from "../../components/AppContext/appContext.jsx";
 import Register from "../register/Register.jsx";
 import Feed from "../../components/feed/Feed.jsx";
-import Sidebar from "../../components/sideBar/sideBar.jsx";
+
 import PostSideBar from "../../components/PostSideBar/postSideBar.jsx";
+import Sidebar from "../../components/sideBar/sidebar.jsx";
 const cookies = new Cookies();
 
 const token = cookies.get("TOKEN");
