@@ -1,5 +1,5 @@
 import React from "react";
-import "./SideBar.scss";
+import "./sidebar.scss";
 import UmbrellaIcon from '@mui/icons-material/Umbrella';
 import AllInboxIcon from '@mui/icons-material/AllInbox';
 import BookIcon from '@mui/icons-material/Book';

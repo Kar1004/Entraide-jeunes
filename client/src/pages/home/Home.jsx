@@ -9,7 +9,7 @@ import Register from "../register/Register.jsx";
 import Feed from "../../components/feed/Feed.jsx";
 
 import PostSideBar from "../../components/PostSideBar/postSideBar.jsx";
-import Sidebar from "../../components/sideBar/sidebar.jsx";
+import Sidebar from "../../components/sidebar/sidebar.jsx";
 const cookies = new Cookies();
 
 const token = cookies.get("TOKEN");

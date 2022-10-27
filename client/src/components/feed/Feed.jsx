@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import CardEntraide from "../share/CardEntraide";
 import { UidContext } from "../AppContext/appContext";
-import "./Feed.scss";
+import "./feed.scss";
 import axios from "axios";
 import { useState } from "react";
 
