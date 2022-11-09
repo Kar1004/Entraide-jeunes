@@ -1,0 +1,25 @@
+.formulaire{
+margin: 150px;
+display: flex;
+flex-direction: column;
+
+}
+.title{
+    margin: 30px;
+}
+.profilUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 150px;
+}.bioCss{
+    text-align: center;
+}
+
+.pencilEdit{
+    position: absolute;
+    top: 271px;
+    right: 363px;
+}
+
+

@@ -1,0 +1,37 @@
+
+.headerNav{
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    background-image: radial-gradient( circle 610px at 5.2% 51.6%,  rgba(5,8,114,1) 0%, rgba(7,3,53,1) 97.5% );
+
+    color: aliceblue;
+}
+
+
+.topBar{
+
+    .menuList{
+        display: flex;
+        flex-direction: row;
+    }
+    link{
+        margin-right: 10px;
+        color: white;
+        :hover{
+            color:cadetblue;
+        }
+    }
+    a{
+        color: white;
+        :hover{
+            color:cadetblue;
+        }
+    
+    }
+    span{
+        color: white;
+        :hover{
+            color:cadetblue;
+        }
+    }
+}
+
