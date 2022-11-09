@@ -1,9 +1,7 @@
 import React from "react";
 import "./TopBar.scss";
 import "../../styles/settings.scss";
-import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import UmbrellaIcon from "@mui/icons-material/Umbrella";
-import FaceIcon from "@mui/icons-material/Face";
 import { Link } from "react-router-dom";
 
 import Cookies from "universal-cookie";

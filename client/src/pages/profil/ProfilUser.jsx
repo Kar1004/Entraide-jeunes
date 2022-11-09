@@ -58,7 +58,7 @@ function ProfilUser() {
         });
 
            SetPost(results)
-          console.log('--> ' + JSON.stringify(results));
+    
         
         
              

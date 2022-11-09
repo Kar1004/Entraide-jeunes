@@ -46,8 +46,11 @@ function Profil() {
       {uid ? (
         <div>
           <TopBar />
-          <h1>Profil</h1>
-          <form onSubmit={handleSubmit} class="formulaire">
+          <div className="title">   
+          <h1 className="text-uppercase ">Profil</h1>
+          </div>
+       
+          <form onSubmit={handleSubmit} class="formulaire ">
             <div class="form-group">
               <label for="formGroupExampleInput">PSEUDO : </label>
               <input
@@ -72,7 +75,7 @@ function Profil() {
                 value={bio}
               ></textarea>
             </div>
-            <button type="button" class="btn btn-outline-sucess" onClick={(e) => handleSubmit(e)}>Ravie de mieux te connaitre!</button>
+            <button type="button" class="btn btn-success" onClick={(e) => handleSubmit(e)}>Ravie de mieux te connaitre!</button>
           </form>
         </div>
       ) : (

@@ -1,4 +1,3 @@
-import Post from "../../components/Post/Post.jsx";
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import "./home.scss";
 import Cookies from "universal-cookie";
@@ -9,7 +8,7 @@ import Register from "../register/Register.jsx";
 import Feed from "../../components/feed/Feed.jsx";
 
 import PostSideBar from "../../components/PostSideBar/postSideBar.jsx";
-import Sidebar from "../../components/sidebar/sidebar.jsx";
+import Sidebar from "../../components/sidebar/Sidebar.jsx";
 const cookies = new Cookies();
 
 const token = cookies.get("TOKEN");

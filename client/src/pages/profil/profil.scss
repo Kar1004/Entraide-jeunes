@@ -1,7 +1,12 @@
 .formulaire{
 margin: 150px;
-}
+display: flex;
+flex-direction: column;
 
+}
+.title{
+    margin: 30px;
+}
 .profilUser{
     display: flex;
     flex-direction: column;

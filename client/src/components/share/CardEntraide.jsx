@@ -2,14 +2,10 @@
 import './CardEntraide.scss'
 import './CardEntraide.scss'
 import axios from "axios";
-import React, { useContext, useEffect } from "react";
-import { useState } from "react";
-import { UidContext } from "../../components/AppContext/appContext.jsx";
+import React, { useEffect } from "react";
 
 
  function CardEntraide(props) {
-  const uid = useContext(UidContext);
-  const [pseudo, setPseudo] = useState("");
 
 
   useEffect(() => {
