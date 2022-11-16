@@ -45,7 +45,7 @@ function Home() {
             <TopBar />
           </div>
           <div className="body-center">
-            <div className=" m-0 d-flex justify-content-around">
+            <div className="bCorp m-0">
               <section className="feed">
                 <Feed />
               </section>

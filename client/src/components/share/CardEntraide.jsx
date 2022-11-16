@@ -26,6 +26,9 @@ import React, { useEffect } from "react";
     Fetch();
   }, []);
 
+const ProfilUser = ()=>{
+  window.location.href = "/profiluser";
+}
 
   return (
   
@@ -39,7 +42,7 @@ import React, { useEffect } from "react";
     <a href="#" class="btn btn-outline-red ">💓</a>
   </div>
   <div class="card-footer text-muted">
-    <div className="creator">{props.pseudo}</div>
+    <div className="creator"  onClick={ProfilUser}>{props.pseudo} </div>
     <div className="date"></div>
   </div>
 </div>
