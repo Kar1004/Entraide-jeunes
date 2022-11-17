@@ -79,7 +79,7 @@ function Login(props) {
         <div className="messageSign">
         <div class="ribbon">
          <div class="ribbon-stitches-top"></div>
-         <div class="ribbon-content"><p>On ne se connait pas encore , allez-viens nous rejoindre <Link  to="/signup" class="fs-5">🌂</Link></p></div>
+         <div class="ribbon-content messageSign"><p>On ne se connait pas encore , allez-viens nous rejoindre <Link  to="/signup" class="fs-5">🌂</Link></p></div>
          <div class="ribbon-stitches-bottom"></div>
         </div>
         </div>

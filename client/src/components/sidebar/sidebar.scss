@@ -34,3 +34,35 @@ li{
 
 }
 }
+
+@media screen and (max-width:810px) {
+
+.NavBg{
+ .hName{
+        display: none;
+ }
+ .nav{
+    display: flex;
+ flex-direction: row;
+
+ }
+ .Dlink{
+    display: none;
+ }
+
+ li{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.5s;
+    .Dnlink{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     }
+    
+}
+
+}
+}

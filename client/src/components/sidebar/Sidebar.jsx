@@ -17,13 +17,13 @@ function sidebar() {
 }
   return (
     <div id="sidebar" className="NavBg">
-      <header   className="text-center border-bottom  p-3 mb-5 bg-body">
+      <header   className="text-center border-bottom  p-3 mb-5 bg-body hName" >
         <a href="#" className="text-dark ">Bienvenu</a>
       </header>
       <ul class="nav align-center">
-        <li>
+        <li class="Dlink">
        < AllInboxIcon/>
-          <a href="#">
+          <a  href="#">
            Boite à demande
           </a>
         </li>
@@ -45,7 +45,7 @@ function sidebar() {
           </a>
         </li> */}
         <li>
-         <p class="text-uppercase text-dark">< UmbrellaIcon onClick={logout} className="logo"aria-label="se déconnecter" />deconecté</p> 
+         <p class="text-uppercase text-dark Dnlink">< UmbrellaIcon onClick={logout} className="logo"aria-label="se déconnecter" />deconecté</p> 
         </li>
       </ul>
     </div>
