@@ -33,6 +33,7 @@
      .SideBar{
         display: flex;
         flex-direction: row;
+        justify-content: space-evenly;
         background-color: #74EBD5;
         background-image: linear-gradient(180deg, #74EBD5 0%, #fcfcff 100%);
     }

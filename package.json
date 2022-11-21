@@ -22,6 +22,7 @@
     "async_hooks": "^1.0.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
+    "bootstrap-icons": "^1.10.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

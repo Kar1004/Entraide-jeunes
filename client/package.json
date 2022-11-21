@@ -90,6 +90,7 @@
     "bonjour-service": "^1.0.14",
     "boolbase": "^1.0.0",
     "bootstrap": "^5.2.1",
+    "bootstrap-icons": "^1.10.2",
     "brace-expansion": "^1.1.11",
     "braces": "^3.0.2",
     "brorand": "^1.1.0",

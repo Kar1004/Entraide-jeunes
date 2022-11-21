@@ -16,7 +16,7 @@ function ProfilEdit() {
       console.log(action);
       const configuration = {
         method: "patch",
-        url: `http://localhost:1004/user/edit/${uid.userId}`,
+        url: `http://localhost:1004/user/editProfil/${uid.userId}`,
         data: {
           pseudo,
           bio,
@@ -73,7 +73,7 @@ function ProfilEdit() {
                 value={bio}
               ></textarea>
             </div>
-            <button type="button" class="btn btn-outline-success" onClick={(e) => handleSubmit(e)}>☂️</button>
+            <button type="button" class="btn btn-outline-success" onClick={(e) => handleSubmit(e)}> éditer</button>
           </form>
         </div>
       ) : (

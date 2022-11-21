@@ -5,6 +5,7 @@ import './styles/login.scss'
 import Cookies from "universal-cookie";
 import LoginForm from './img/girlswithaumbrella.png'
 import { Link } from "react-router-dom";
+import UmbrellaTwoToneIcon from '@mui/icons-material/UmbrellaTwoTone';
 const cookies = new Cookies();
 function Login(props) {
   const [email, setEmail] = useState("");
@@ -79,7 +80,7 @@ function Login(props) {
         <div className="messageSign">
         <div class="ribbon">
          <div class="ribbon-stitches-top"></div>
-         <div class="ribbon-content messageSign"><p>On ne se connait pas encore , allez-viens nous rejoindre <Link  to="/signup" class="fs-5">🌂</Link></p></div>
+         <div class="ribbon-content messageSign"><p>On ne se connait pas encore , allez-viens nous rejoindre <Link  to="/signup" class="fs-5"><UmbrellaTwoToneIcon aria-label="inscription" /></Link></p></div>
          <div class="ribbon-stitches-bottom"></div>
         </div>
         </div>

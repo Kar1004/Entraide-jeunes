@@ -44,8 +44,8 @@ function sidebar() {
            Logement provisoire
           </a>
         </li> */}
-        <li>
-         <p class="text-uppercase text-dark Dnlink">< UmbrellaIcon onClick={logout} className="logo"aria-label="se déconnecter" />deconecté</p> 
+        <li className="Deconnect">
+         <p className="text-uppercase text-dark Dnlink">< UmbrellaIcon onClick={logout} className="logo"aria-label="se déconnecter" />deconecté</p> 
         </li>
       </ul>
     </div>

@@ -9,8 +9,8 @@ exports.AllUser = async (_, res) => {
   res.status(200).json(users);
 };
 //pour récupérer les infos d'un seul utilisateurs
-// On véridie avec ObjectId si il existe et valide
-// Aprrés avec  FindbyId nous essyons de le retrouver avec le Id aléatoire
+// On vérifie avec ObjectId si il existe et est  valide
+// Aprés avec  FindbyId nous essyons de le retrouver avec le Id 
 exports.UserInfo = (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     return res.status(400).send("ID UKNOW");
@@ -24,7 +24,7 @@ exports.UserInfo = (req, res) => {
   }).select("-password");
 };
 
-//ppour la mise a jour du profil de l'utilisateur
+//pour la mise a jour du profil de l'utilisateur
 //Nous utiliserons findOneandUpdate
 
 exports.udapteUser = async (req, res) => {
@@ -98,7 +98,7 @@ exports.editProfil = async (req, res) => {
           },
         contact:{
            city: req.body.city,
-           mail:req.nody.mail,
+           mail:req.body.mail,
            age:req.body.age
         }
         },

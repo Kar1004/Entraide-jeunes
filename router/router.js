@@ -23,6 +23,8 @@ const {
   commentMessage,
   editCommentMessage,
   deleteCommentMessage,
+  messageInfo,
+  readAllPostWitchNopopulate,
 } = require("../controllers/messageController");
 const passport = require("passport");
 const router = express.Router();
@@ -142,16 +144,16 @@ router.get("/logout", (req, res) => {
 
 router.get("/", AllUser);
 
-//Info of user
-router.get("/:id", UserInfo);
+//Info de l' user
+router.get("/profilUser/:id", UserInfo);
 
-//info profil
+//créer un profil
 
 router.patch("/user/create/:id", createProfil)
 
-//info profil
+//éditer un profil
 
-router.patch("/user/edit/:id", editProfil)
+router.patch("/user/editProfil/:id", editProfil)
 //udapte a User
 
 router.put("/:id", udapteUser);
@@ -215,16 +217,21 @@ router.patch("/unfollow/:id", Unfollow);
 //Avoir tous les messages
 router.get("/message/allMessage", readAllPost);
 
-//Obtenir un message
+//avoir tous les messages sans populate
+router.get("/message/nopopulate",readAllPostWitchNopopulate)
+//creer un message
 router.post("/message/createMessage/:id", createPost);
+
+//Obtenir un message
+router.get("/message/infoUser/:id", messageInfo);
 
 //udpate le message
 
-router.put("/message/:id", UpdateMessagePost);
+router.put("/message/updateMessage/:users", UpdateMessagePost);
 
 //Delete Message
 
-router.delete("/message/:id", deleteMessageUser);
+router.delete("/message/deleteMessage/:users", deleteMessageUser);
 
 // LIke Message
 
@@ -235,7 +242,7 @@ router.patch("/UnlikeMessage/:id", UnLikeMessage);
 
 //patch
 
-// router.patch('/comments/:id',commentMessage)
+//  router.patch('/comments/:id',commentMessage)
 // router.patch('/edit-comments/:id',editCommentMessage)
 // router.patch('/deletecomments/:id',deleteCommentMessage)
 

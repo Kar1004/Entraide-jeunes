@@ -49,18 +49,16 @@ li{
  .Dlink{
     display: none;
  }
+ .Deconnect{
+    display: none;
+ }
 
  li{
   
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: 0.5s;
-    .Dnlink{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-     }
+    transition: 0.5s
     
 }
 

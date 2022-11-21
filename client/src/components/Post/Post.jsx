@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { UidContext } from "../../components/AppContext/appContext.jsx";
+import MailOutlineTwoToneIcon from '@mui/icons-material/MailOutlineTwoTone';
 import "./post.scss";
 
 function Post() {
@@ -51,8 +52,9 @@ function Post() {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         data-bs-whatever="@fat"
+        className="postMessage"
       >
-        ☔
+        <MailOutlineTwoToneIcon  arial-label="envoyer un message" />
       </button>
       <div
         class="modal fade"
@@ -104,7 +106,7 @@ function Post() {
                 class="btn btn-success"
                 onClick={(e) => handleSubmit(e)}
               >
-                Que des gouttes de bohneur affluent sur toi !{" "}
+                Que des gouttes de bonheur affluent sur toi !{" "}
               </button>
             </div>
           </div>

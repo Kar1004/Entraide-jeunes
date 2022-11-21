@@ -2,6 +2,7 @@ import React from "react";
 import "./TopBar.scss";
 import "../../styles/settings.scss";
 import UmbrellaIcon from "@mui/icons-material/Umbrella";
+import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import { Link } from "react-router-dom";
 
 import Cookies from "universal-cookie";
@@ -53,6 +54,9 @@ function TopBar() {
                 </Link>
               </li>
             </ul>
+          </div>
+          <div className="logout">
+           <LogoutTwoToneIcon onClick={logout} className="logoutIcons" aria-label="déconnectez-vous"/>
           </div>
         </div>
       </nav>

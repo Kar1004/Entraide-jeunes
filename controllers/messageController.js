@@ -15,6 +15,18 @@ exports.readAllPost = async (req, res) => {
     })
 }
 
+exports.readAllPostWitchNopopulate = async (req, res) => {
+    messageModels.find()
+    .then(docs => {
+       res.status(200).json({
+       users: docs
+       })
+      })
+    .catch((e)=>{
+      res.status(500).json({error: e})
+    })
+}
+
 exports.createPost = async (req, res) => {
     const message = new messageModels({
         type: req.body.type,
@@ -30,18 +42,32 @@ exports.createPost = async (req, res) => {
         res.status(200).json(msg))
 }
 
-exports.UpdateMessagePost = async (req, res) => {
+
+exports.messageInfo = (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        return res.status(400).send('ID UKNOW')
+      return res.status(400).send("ID UKNOW");
     }
+    messageModels.findById(req.params.id, (err, docs) => {
+      if (!err) {
+        res.send(docs);
+      } else {
+        console.log("id uknow" + err);
+      }
+    }) ;
+  };
+exports.UpdateMessagePost = async (req, res) => {
+     
     try {
-        messageModels.findByIdAndUpdate(req.params.id, {
+        const msg = messageModels
+        if(msg.users === req.params.user)  {
+        messageModels.findOneAndUpdate(req.params.users, {
             $set: {
-                message: req.body.message,
+                message: req.body.message
             }
         }, { new: true }, (_, docs) => {
             return res.send(docs);
         })
+    }
     } catch (err) {
         return res.status(500).json({ message: err })
     }
@@ -49,12 +75,9 @@ exports.UpdateMessagePost = async (req, res) => {
 
 
 exports.deleteMessageUser = async (req, res) => {
-    if (!ObjectId.isValid(req.params.id)) {
-        return res.status(400).send('ID UKNOW')
-    }
     try {
-        messageModels.findByIdAndDelete(req.params.id).exec();
-        return res.status(200).json({ message: "Sucessfully deleted" })
+        messageModels.findOneAndDelete(req.params.users).exec();
+        return res.status(200).json({ message: " deleted" })
     } catch (err) {
         return res.status(500).json({ message: err })
     }
@@ -62,9 +85,7 @@ exports.deleteMessageUser = async (req, res) => {
 
 
 exports.LikeMessage = async (req, res) => {
-    if (!ObjectId.isValid(req.params.id)) {
-        return res.status(400).send('ID UKNOW')
-    }
+
     try {
         await messageModels.findById(req.params.id, {
             $addToSet: {

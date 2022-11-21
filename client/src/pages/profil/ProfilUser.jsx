@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UidContext } from "../../components/AppContext/appContext";
-import CardEntraide from "../../components/share/CardEntraide";
+import CardEntraideUser from "../../components/share/CardEntraideUser";
 import TopBar from "../../components/TopBar/TopBar";
 import "./profil.scss";
 
@@ -22,7 +22,7 @@ function ProfilUser() {
       };
       axios(configuration)
         .then((result) => {
-          console.log(' lol' + uid.userId);
+          console.log(" lol" + uid.userId);
           setBio(result.data.bio[0].bio);
           setPseudo(result.data.bio[0].pseudo);
           console.log(result);
@@ -41,28 +41,16 @@ function ProfilUser() {
     };
     axios(configuration)
       .then((result) => {
-        try{
+        try {
           let results = [];
           let messages = result.data.users;
-          // console.log('messages' + JSON.stringify(messages))
-        // for (let i = 0; i < messages.length; i++) {
-          
-        //   if (messages[i].users._id === uid.userId) {
-        //     results.push('i -> ' + messages[i]);
-        //   }
-        // }
-        messages.filter((message) => {
-         if ( message.users._id === uid.userId){
-            results.push(message);
-         };
-        });
-
-           SetPost(results)
-    
-        
-        
-             
-        }catch(e){
+          messages.filter((message) => {
+            if (message.users._id === uid.userId) {
+              results.push(message);
+            }
+          });
+          SetPost(results);
+        } catch (e) {
           console.log(e);
         }
       })
@@ -80,7 +68,9 @@ function ProfilUser() {
         <p>Profil</p>
         <div class="card shadow p-3 mb-5 bg-body rounded">
           <div class="card-header">
-            <p class="text-uppercase fw-bold text-center ">PEEK A BOO ,{pseudo}</p>
+            <p class="text-uppercase fw-bold text-center ">
+              PEEK A BOO ,{pseudo}
+            </p>
           </div>
           <div class="card-body">
             <p class="text-uppercase bioCss text-light">bio</p>
@@ -88,24 +78,23 @@ function ProfilUser() {
           </div>
         </div>
         <div>
-        <Link to="/profilEdit" class="btn btn-success rounded-circle shadow-sm p-3 mb-5 bg-body rounded">
-          {" "}
-          ✏️
-        </Link>
+          <Link
+            to="/profilEdit"
+            class="btn btn-success rounded-circle shadow-sm p-3 mb-5 bg-body rounded"
+          >
+            {" "}
+            ✏️
+          </Link>
         </div>
         <div className="UserCreation">
           <div className="UserPost">
-          <div class="feedPost">
-
-{
-  posts.map((post)=>{
-    return <CardEntraide message={post.message} type={post.type} pseudo={post.users.bio[0].pseudo}/>
-  })
-  
-}
-
-</div>
-
+            <div class="feedPost">
+              {posts.map((post) => {
+                return (
+                  <CardEntraideUser message={post.message} type={post.type} />
+                );
+              })}
+            </div>
           </div>
           <div className="userBlog"></div>
           <div className="userContact"></div>

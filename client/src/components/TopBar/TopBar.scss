@@ -33,5 +33,13 @@
             color:cadetblue;
         }
     }
+    .logout{
+        display: none;
+    }
 }
 
+@media screen and (max-width:890px) {
+    .logout{
+        display: block !important;
+    }
+}

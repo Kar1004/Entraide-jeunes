@@ -3,6 +3,7 @@ import axios from "axios";
 import './styles/signup.scss'
 import SignImg from './img/PeopleBro.png'
 import { Link } from "react-router-dom";
+import BeachAccessTwoToneIcon from '@mui/icons-material/BeachAccessTwoTone';
 function Signup(props) {
   const [pseudo, setPseudo] = useState("");
   const [email, setEmail] = useState("");
@@ -68,7 +69,7 @@ function Signup(props) {
           alt="Ami encourgeant son ami"
           class="ImgSign"
         />
-           <div class="messageSign text-white"><p>Ah ,tu es déjà des notre ! <Link to="/login" class="fs-5">☂️</Link></p></div>
+           <div class="messageSign text-white"><p>Ah ,tu es déjà des notre ! <Link to="/login" class="fs-5"><BeachAccessTwoToneIcon aria-label="connection"/></Link></p></div>
       </div>
     </div>
   );
