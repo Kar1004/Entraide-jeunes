@@ -1,6 +1,6 @@
 .card {
   margin: 9px;
-  width: 18rem;
+  width: 16rem;
   height: 25rem;
   
 }
@@ -15,12 +15,28 @@ text-decoration: dotted;
 }
 .text-title{
   background-color: rgba(0, 0, 0, 0.267);
+
+}
+
+.LikeIcon{
+display: flex;
+justify-content: center;
 }
 .card-body{
   background-image: linear-gradient( 179.1deg,  rgba(43,170,96,1) 2.3%, rgba(129,204,104,1) 98.3% );
+  text-align: justify;
 }
 
 .card-footer{
-  flex-direction: column;
-  align-items: center
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center!important;
+}
+
+.creator{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

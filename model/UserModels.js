@@ -18,11 +18,6 @@ const UserSchema = mongoose.Schema(
       maxlenght: 100,
       minlenght: 6,
     },
-      messages:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "messages",
-        required:true
-    }],
     bio: {
       type: [
         {

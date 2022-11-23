@@ -15,7 +15,11 @@
     width: 500px;
     height: 400px;
 }
-
+.Btext{
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black;
+  color: black;
+}
 @media screen and (max-width:810px) {
   .signupForm{
      display: flex;

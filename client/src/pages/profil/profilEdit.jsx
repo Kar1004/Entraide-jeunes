@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { UidContext } from "../../components/AppContext/appContext.jsx";
+import Footer from "../../components/Footer/footer.jsx";
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import "./profil.scss";
 
@@ -9,6 +11,7 @@ function ProfilEdit() {
   const uid = useContext(UidContext);
   const [pseudo, setPseudo] = useState("");
   const [bio, setBio] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +32,7 @@ function ProfilEdit() {
           .then((result) => {
             console.log("receive");
             console.log(result);
-            window.location.href = "/profiluser";
+            return navigate( "/profiluser");
           })
           .catch((error) => {
             error = new Error();
@@ -75,6 +78,7 @@ function ProfilEdit() {
             </div>
             <button type="button" class="btn btn-outline-success" onClick={(e) => handleSubmit(e)}> éditer</button>
           </form>
+          <Footer />
         </div>
       ) : (
         <div>

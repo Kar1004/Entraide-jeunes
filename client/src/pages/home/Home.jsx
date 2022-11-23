@@ -9,6 +9,7 @@ import Feed from "../../components/feed/Feed.jsx";
 
 import PostSideBar from "../../components/PostSideBar/postSideBar.jsx";
 import Sidebar from "../../components/sidebar/Sidebar.jsx";
+import Footer from "../../components/Footer/footer.jsx";
 const cookies = new Cookies();
 
 const token = cookies.get("TOKEN");

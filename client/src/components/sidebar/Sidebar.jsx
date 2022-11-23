@@ -6,13 +6,15 @@ import BookIcon from '@mui/icons-material/Book';
 import Cookies from "universal-cookie";
 import HelpIcon from '@mui/icons-material/Help';
 import Umbrella from "@mui/icons-material/Umbrella";
+import { useNavigate } from "react-router";
 const cookies = new Cookies();
 
 
 function sidebar() {
+  const navigate = useNavigate()
   const logout = () => {
     cookies.remove("TOKEN");
-    window.location.href = "/login";
+   return navigate("/login");
     
 }
   return (

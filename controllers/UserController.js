@@ -10,7 +10,6 @@ exports.AllUser = async (_, res) => {
 };
 //pour récupérer les infos d'un seul utilisateurs
 // On vérifie avec ObjectId si il existe et est  valide
-// Aprés avec  FindbyId nous essyons de le retrouver avec le Id 
 exports.UserInfo = (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     return res.status(400).send("ID UKNOW");
@@ -51,7 +50,7 @@ exports.udapteUser = async (req, res) => {
 
 // pour les info du profil
 
-//ppour la mise a jour du profil de l'utilisateur
+//pour la mise a jour du profil de l'utilisateur
 //Nous utiliserons findOneandUpdate
 
 exports.createProfil = async (req, res) => {
@@ -62,7 +61,7 @@ exports.createProfil = async (req, res) => {
     await UserModel.findOneAndUpdate(
       {_id:req.params.id},
       {
-        $push: {
+        $set: {
           bio: {
             pseudo: req.body.pseudo,
             bio: req.body.bio,
@@ -80,9 +79,88 @@ exports.createProfil = async (req, res) => {
      console.log(err);
   }
 };
-//edit
+exports.editPseudo = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(400).send("ID UKNOW");
+  }
+  try {
+    await UserModel.findOneAndUpdate(
+      {_id:req.params.id},
+      {
+        $set: {
+          bio: {
+            pseudo: req.body.pseudo,
+          },
+        },
+      },
+      { new: true },
+      (_, docs) => {
+        return res.send(docs);
+      }
+    );
+  } catch (err) {
+     console.log(err);
+  }
+};
+
+//editProfil
 
 exports.editProfil = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(400).send("ID UKNOW");
+  }
+  try {
+    await UserModel.findOneAndUpdate(
+      {_id:req.params.id},
+      {
+        $set: {
+          bio: {
+            pseudo: req.body.pseudo,
+            bio: req.body.bio,
+          },
+        },
+      },
+      { new: true },
+      (_, docs) => {
+        return res.send(docs);
+      }
+    );
+  } catch (err) {
+     console.log(err);
+  }
+};
+
+
+
+//edit Bio
+exports.editBio = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(400).send("ID UKNOW");
+  }
+  try {
+    await UserModel.findOneAndUpdate(
+      {_id:req.params.id},
+      {
+        $set: {
+          bio: {
+            bio: req.body.bio,
+          },
+        },
+      },
+      { new: true },
+      (_, docs) => {
+        return res.send(docs);
+      }
+    );
+  } catch (err) {
+     console.log(err);
+  }
+};
+
+
+//edit contact
+
+exports.editContact= async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     return res.status(400).send("ID UKNOW");
   }
@@ -91,14 +169,8 @@ exports.editProfil = async (req, res) => {
      req.params.id ,
       {
         $set: {
-          bio: {
-            pseudo: req.body.pseudo,
-            bio: req.body.bio,
-            picture: req.body.picture,
-          },
         contact:{
            city: req.body.city,
-           mail:req.body.mail,
            age:req.body.age
         }
         },

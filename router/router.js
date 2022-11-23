@@ -12,6 +12,9 @@ const {
   editBlog,
   DeleteBlog,
   createBlog,
+  editPseudo,
+  editBio,
+  editContact,
 } = require("../controllers/UserController.js");
 const {
   readAllPost,
@@ -25,6 +28,7 @@ const {
   deleteCommentMessage,
   messageInfo,
   readAllPostWitchNopopulate,
+  deleteUser,
 } = require("../controllers/messageController");
 const passport = require("passport");
 const router = express.Router();
@@ -145,7 +149,7 @@ router.get("/logout", (req, res) => {
 router.get("/", AllUser);
 
 //Info de l' user
-router.get("/profilUser/:id", UserInfo);
+router.get("/:id", UserInfo);
 
 //créer un profil
 
@@ -154,13 +158,25 @@ router.patch("/user/create/:id", createProfil)
 //éditer un profil
 
 router.patch("/user/editProfil/:id", editProfil)
+
+// éditer son pseudo ou sa bio
+router.put("/user/editPseudo/:id", editPseudo)
+
+router.put("/user/editBio/:id", editBio)
+
+// éditer la page contact
+
+router.patch("/user/editContact/:id", editContact)
 //udapte a User
 
 router.put("/:id", udapteUser);
 
 //delete User
 
-router.delete("/:id", DeleteUser);
+router.delete("/deleteUser/:id", DeleteUser);
+
+//
+router.delete("/deleteUserId/:id", deleteUser);
 
 //populate
 

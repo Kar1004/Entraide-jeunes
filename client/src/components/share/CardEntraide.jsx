@@ -36,7 +36,7 @@ const ProfilUser = ()=>{
   <div class="card-body">
     <p class="card-title text-light ">{props.message}</p>
     <p class="card-text text-justify"></p>
-    <a href="#" class="btn btn-outline-red "><VolunteerActivismOutlinedIcon aria-label="donnez-un coeur" /></a>
+    <a href="#" class="btn btn-outline-red LikeIcon"><VolunteerActivismOutlinedIcon aria-label="donnez-un coeur" /></a>
   </div>
   <div class="card-footer text-muted">
     <div className="creator"  onClick={ProfilUser}>{props.pseudo} </div>

@@ -84,6 +84,27 @@ exports.deleteMessageUser = async (req, res) => {
 }
 
 
+exports.deleteUser = async (req,res) =>{
+    try{
+        const msgUser = messageModels.findById(req.params.users)
+        const id = req.params.users
+        if(msgUser.users === req.params.users){
+          await  messageModels.findOneAndDelete(req.params.users).exec();
+            return res.status(200).json({ message: " deleted" })
+        }
+        else if (req.params.users === id ){
+           await UserModel.findOneAndDelete(req.params.id).exec();
+            return res.status(200).json({ message: " deleted" })
+        } else {
+            console.log(err);
+        }
+     
+
+    } catch (err) {
+        return res.status(500).json({ message: err })
+    }
+}
+
 exports.LikeMessage = async (req, res) => {
 
     try {

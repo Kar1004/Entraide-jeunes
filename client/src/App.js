@@ -50,13 +50,12 @@ function App() {
           <>
           <Route exact path="/" element={<LandingPage/>} />
           <Route exact path="/home" element={<Home/>}/>
-          <Route path="/Login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profil" element={<Profil />} />
           <Route path="/profiluser" element={<ProfilUser />} />
           <Route path="/profilEdit" element={<ProfilEdit />} />
           <Route path="/blog" element={<Blog />}/>
-          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/contact" element={<Contact />}/>
           <Route path="/Login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/lost"  element={<Lost />} />

@@ -47,13 +47,13 @@ app.use((req, res, next) => {
   next();
 });
 
-//verify middleware
+//verify 
 // free endpoint
 app.get("/user/CheckUser", (req, res) => {
   res.json({ message: "tu as accés"});
 });
 
-// authentication endpoint
+// authentication 
 app.get("/user/refresh", auth ,(req, res) => {
   res.json({ message: "tu as accés" , user : req.user})
 });

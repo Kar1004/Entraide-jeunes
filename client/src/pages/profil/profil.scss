@@ -21,5 +21,78 @@ flex-direction: column;
     top: 271px;
     right: 363px;
 }
+.Pedit{
+    text-transform: uppercase;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    box-shadow: inset 2px 2px 2px , -1px 8px 13px 1px rgba(255,255,255,0.75) ;
+    padding: 20px;
+    border: 2px solid white;
+    text-decoration: underline;
+    text-align: center;
+}
+.buttonEdt{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-transform: uppercase;
+    width: 200px;
+}
 
+.colorBtn{
+    color:black;
+    :hover{
+        color: rgba(127, 255, 212, 0.642)!important;
+    }
+}
 
+.DeleteUser{
+    text-transform: uppercase;
+    flex-direction: column-reverse;
+    align-items: center;
+    display: flex;
+    width: 200px;
+    margin-top: 99px;
+    font-size: 20px;
+    border: 2px solid black;
+    box-shadow: 0px 10px 9px 0px black;
+    padding: 20px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: 100px;
+    transition: all 1s ease-in-out;
+    :hover{
+        color: black;
+
+    }
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btnIc{
+ border: 2px dotted rgb(255, 255, 255);
+ border-radius: 50%;
+ background-color: black;
+ width: 100px;
+}
+.deleteUser {
+    width: 200px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.UserCreation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BodyColor{
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
